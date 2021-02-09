@@ -35,15 +35,30 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
     // call checkAnswer each time a new character is entered
-    const lettersInJapan = ['あ', 'い', 'う', 'え', 'お'];
+    const lettersInJapan = ['あ', 'い', 'う', 'え', 'お', 'か'];
     var index = 1;
 
     input.addEventListener('keyup', () => {
-            converter.convert(input.value); 
-            if (input.value == converter.convert(question.innerHTML).romaji) 
+            converter.convert(input.value);
+            var converted = converter.convert(question.innerHTML).romaji;
+            if (input.value == converted && converted.length <= 1) 
+            {
+                nextLetter();
+                console.log(converted.length);
+            }
+            else if(input.value == converted && converted.length > 1)   //see what happens once you get for ka.
             {
                 nextLetter();
             }
+            else if(input.value != converted && converted.length > 1)
+            {}
+            else
+            {
+              alert("incorrect!");
+              console.log(converted.length);
+            }
+              
+                
 
         });
 
