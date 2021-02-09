@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     'や',      'ゆ',      'よ',           // ya yu yo
     'ら', 'り', 'る', 'れ', 'ろ',         // ra-ro
     'わ',                  'を',          // wa wo
-                        'ん',             // n
+                'ん',                     // n
     'が', 'ぎ', 'ぐ', 'げ', 'ご',          // ga-go
     'ざ', 'じ', 'ず', 'ぜ', 'ぞ',          // za-zo
     'だ',            'で', 'ど',           // da-do
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         };
 });
 
-
+/*--------------------------BEGIN JP-CONVERSION CODE-------------------------- */
 
 },{"jp-conversion":2}],2:[function(require,module,exports){
 // Always useful to have lying around
