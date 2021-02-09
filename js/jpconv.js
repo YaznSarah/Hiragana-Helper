@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', function(event) {
     var input = document.getElementById('response');    // get input element from html
     var question = document.getElementById("question"); // get question div from html
-
     var converter = require('jp-conversion');
     var convert = require('jp-conversion');
     var res = converter.convert('ひらカナ！');
@@ -36,13 +35,29 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
     // call checkAnswer each time a new character is entered
+    const lettersInJapan = ['あ', 'い', 'う', 'え', 'お'];
+    var index = 1;
+
     input.addEventListener('keyup', () => {
-            converter.convert(input.value);
-            if (input.value == "a") {
-                alert("correct!");
+            converter.convert(input.value); 
+            if (input.value == converter.convert(question.innerHTML).romaji) 
+            {
+                nextLetter();
             }
+
         });
+
+        function nextLetter() 
+        {
+          if (index == lettersInJapan.length)
+            index = 0;
+
+          question.innerHTML = lettersInJapan[index];
+          index++;
+          input.value = "";
+        };
 });
+
 
 
 },{"jp-conversion":2}],2:[function(require,module,exports){
