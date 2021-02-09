@@ -1,12 +1,5 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 document.addEventListener('DOMContentLoaded', function(event) {
-    var input = document.getElementById('response');    // get input element from html
-    var question = document.getElementById("question"); // get question div from html
-    var converter = require('jp-conversion');
-    var convert = require('jp-conversion');
-    var res = converter.convert('ひらカナ！');
-    var res2 = converter.convert('hirakana');
-    console.log(res);
     /*
     Planned features: mostly in order of most to least important
     good idea of what we're trying to achieve here can be found at:
@@ -32,44 +25,61 @@ document.addEventListener('DOMContentLoaded', function(event) {
     */
 
     
-
+    var input = document.getElementById('response');    // get input element from html
+    var question = document.getElementById("question"); // get question div from html
+    var converter = require('jp-conversion');
+    var convert = require('jp-conversion');
 
     // call checkAnswer each time a new character is entered
-    const hiragana = ['あ', 'い', 'う', 'え', 'お', 'か'];
-    var i = 1;
+    const hiragana = [
+    'あ', 'い', 'う', 'え', 'お',         // a - o
+    'か', 'き', 'く', 'け', 'こ',         // ka-ko
+    'さ', 'し', 'す', 'せ', 'そ',         // sa-so
+    'た', 'ち', 'つ', 'て', 'と',         // ta chi tsu te to
+    'な', 'に', 'ぬ', 'ね', 'の',         // na-no
+    'は', 'ひ', 'ふ', 'へ', 'ほ',         // ha-ho + fu
+    'ま', 'み', 'む', 'め', 'も',         // ma-mo
+    'や',      'ゆ',      'よ',           // ya yu yo
+    'ら', 'り', 'る', 'れ', 'ろ',         // ra-ro
+    'わ',                  'を',          // wa wo
+                        'ん',             // n
+    'が', 'ぎ', 'ぐ', 'げ', 'ご',          // ga-go
+    'ざ', 'じ', 'ず', 'ぜ', 'ぞ',          // za-zo
+    'だ',            'で', 'ど',           // da-do
+    'ば', 'び', 'ぶ', 'べ', 'ぼ',          // ba-bo
+    'ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ',          // pa-po
+    ];
+    // initialize with random hiragana
+    var i = Math.floor(Math.random() * hiragana.length);
+    question.innerHTML = hiragana[i];
 
-    input.addEventListener('keyup', () => {
-            converter.convert(input.value);
+    input.addEventListener('keyup', (event) => {
+            if(event.key == 'Backspace') return;
             var converted = converter.convert(question.innerHTML).romaji;
-            if (input.value == converted && converted.length <= 1) 
+            
+            if(input.value == converted)                     // if input matches symbol
             {
-                nextLetter();
-                console.log(converted.length);
+              nextLetter();
+            } else                                          // else input does not match symbol
+              {
+                if(input.value.length == converted.length)  // if input length matches answer length
+                {
+                  alert("wrong");
+                } else                                      // else input is too short to tell
+                {
+                  // do nothing
+                }
             }
-            else if(input.value == converted && converted.length > 1)   //see what happens once you get for ka.
-            {
-                nextLetter();
-            }
-            else if(input.value != converted && converted.length > 1)
-            {}
-            else
-            {
-              alert("incorrect!");
-              console.log(converted.length);
-            }
-              
-                
-
         });
 
         function nextLetter() 
         {
-          if (i == hiragana.length){
-              i = 0;
+          var previ = i;
+          while(i == previ) {
+            console.log('loop');
+            i = Math.floor(Math.random() * hiragana.length)
           }
           question.innerHTML = hiragana[i];
-          i++;
-          console.log(i);
           input.value = "";
         };
 });
