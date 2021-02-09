@@ -1,63 +1,80 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-/*---------------- BEGIN HIRAKANA CODE ----------------*/
-  /*
-  Planned features: mostly in order of most to least important
-  good idea of what we're trying to achieve here can be found at:
-  https://realkana.com/
-
-
-  Functionality:
-      implement single hiragana characters
-      toggle on/off certain character rows. (a-o, ka-ko, etc)
-      toggle on/off dakuten and handakuten characters
-      implement single katakana characters
-      toggle on/off katakana
-      add double characters (cha, nyo, byo)
-      add extended characters for katakana (vyo, fo, che, we, ve)
-
-      add simple words
-      add quizzes/minigames/highscores
-      
-  Aesthetic/QoL: 
-      light/dark modes
-      switch between different typefaces
-      autosubmit answer without pressing "enter" each time
-  */  
-
-  document.addEventListener('DOMContentLoaded', function(event) {   // wait for html ready
+document.addEventListener('DOMContentLoaded', function(event) {
     var input = document.getElementById('response');    // get input element from html
     var question = document.getElementById("question"); // get question div from html
-    var converter = require('jp-conversion');           // converter object from module
-    var convert = require('jp-conversion');             // convert function from module
+    var converter = require('jp-conversion');
+    var convert = require('jp-conversion');
+    var res = converter.convert('ひらカナ！');
+    var res2 = converter.convert('hirakana');
+    console.log(res);
+    /*
+    Planned features: mostly in order of most to least important
+    good idea of what we're trying to achieve here can be found at:
+    https://realkana.com/
 
-    //array of all hiragana characters
-    const hiragana = ['あ', 'い', 'う', 'え', 'お'];
-    // index for traversing hiragana array
-    var i = 1;
+
+    Functionality:
+        implement single hiragana characters
+        toggle on/off certain character rows. (a-o, ka-ko, etc)
+        toggle on/off dakuten and handakuten characters
+        implement single katakana characters
+        toggle on/off katakana
+        add double characters (cha, nyo, byo)
+        add extended characters for katakana (vyo, fo, che, we, ve)
+
+        add simple words
+        add quizzes/minigames/highscores
+        
+    Aesthetic/QoL: 
+        light/dark modes
+        switch between different typefaces
+        autosubmit answer without pressing "enter" each time
+    */
+
+    
+
 
     // call checkAnswer each time a new character is entered
+    const hiragana = ['あ', 'い', 'う', 'え', 'お', 'か'];
+    var i = 1;
+
     input.addEventListener('keyup', () => {
-        converter.convert(input.value); 
-        if (input.value == converter.convert(question.innerHTML).romaji) 
+            converter.convert(input.value);
+            var converted = converter.convert(question.innerHTML).romaji;
+            if (input.value == converted && converted.length <= 1) 
+            {
+                nextLetter();
+                console.log(converted.length);
+            }
+            else if(input.value == converted && converted.length > 1)   //see what happens once you get for ka.
+            {
+                nextLetter();
+            }
+            else if(input.value != converted && converted.length > 1)
+            {}
+            else
+            {
+              alert("incorrect!");
+              console.log(converted.length);
+            }
+              
+                
+
+        });
+
+        function nextLetter() 
         {
-            nextLetter();
-        }
-
-    });
-    
-    // change to next letter, typically called on correct answer
-    function nextLetter() 
-    {
-      if (i == hiragana.length)
-        i = 0;
-
-      question.innerHTML = hiragana[i];
-      i++;
-      input.value = "";
-    };
+          if (i == hiragana.length){
+              i = 0;
+          }
+          question.innerHTML = hiragana[i];
+          i++;
+          console.log(i);
+          input.value = "";
+        };
 });
 
-/*---------------- BEGIN JP-CONVERSION CODE ----------------*/
+
 
 },{"jp-conversion":2}],2:[function(require,module,exports){
 // Always useful to have lying around
