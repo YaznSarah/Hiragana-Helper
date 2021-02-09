@@ -1,0 +1,24 @@
+{
+  "name": "hirakana",
+  "version": "0.1.0",
+  "description": "Japanese writing system study tool.",
+  "main": "js/main.js",
+  "license": "MIT",
+  "dependencies": {
+    "jp-conversion": "0.0.7",
+    "requirejs": "^2.3.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "hirakana"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YaznSarah/Hiragana-Helper.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/YaznSarah/Hiragana-Helper/issues"
+  },
+  "homepage": "https://github.com/YaznSarah/Hiragana-Helper#readme"
+}
