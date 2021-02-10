@@ -55,7 +55,7 @@
       var medSet = hiragana.filter(x => converter.convert(x).romaji.length == 2);  // set of two-letter chars
       var hardSet = hiragana.filter(x => converter.convert(x).romaji.length > 2);  // set of three-letter chars
 
-      var tester = easySet;
+      var tester = medSet;
 
       // initialize with random hiragana
       var i = Math.floor(Math.random() * tester.length);

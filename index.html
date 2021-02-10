@@ -10,6 +10,7 @@
   
   <script src=""></script>
   <script src="js/main.js"></script>
+  <script src="js/buttons.js"></script>
 </head>
 <body>
 
@@ -19,9 +20,25 @@
       type the correct romanization for each character<br>
       <span class="subtext">各記号に正しいローマ字を入力します</span><br>
     </p>
-
-    <div class="container" id="quizzer">
-      <div id="question"></div>
-      <input id="response" maxlength="6"></input>
+    <div class="menu">
+      <div class="navbar">
+          <button class="tablink" onclick="changeTab(event, 'hiragana')">hiragana</button>
+          <button class="tablink" onclick="changeTab(event, 'katakana')">katakana</button>
+          <button class="tablink" onclick="changeTab(event, 'quizzer')">quizzer</button>
+          <button class="tablink" onclick="changeTab(event, 'about')">about</button>
+      </div>
+      <div  id="hiragana" class="container tabcontent">
+        hiragana choooser page
+      </div>
+      <div  id="katakana" class="container tabcontent">
+        katkana chooser page
+      </div>
+      <div  id="quizzer" class="container tabcontent">
+        <div id="question"></div>
+        <input id="response" maxlength="6"></input>
+      </div>
+      <div  id="about" class="container tabcontent">
+        this is the about page
+      </div>
     </div>
   </div>
