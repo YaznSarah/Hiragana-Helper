@@ -61,26 +61,38 @@
       var i = Math.floor(Math.random() * tester.length);
       question.innerHTML = tester[i];
 
-      input.addEventListener('keyup', (event) => {
-        if (event.key == 'Backspace') return;
-        var converted = converter.convert(question.innerHTML).romaji;
-
-        if (input.value == converted)                     // if input matches symbol
-        {
-          nextLetter();
+      input.addEventListener('keypress', (e) => {                     
+        if (e.key === 'Enter') {
+          var converted = converter.convert(question.innerHTML).romaji;
+          if (input.value == converted)                     // if input matches symbol
+            nextLetter();
+          else
+            alert("wrong")
+          // code for enter
         }
-        else                                          // else input does not match symbol
-        {
-          if (input.value.length == converted.length)  // if input length matches answer length
-          {
-            alert("wrong");
-          } else                                      // else input is too short to tell
-          {
-            // do nothing
-          }
-        }
-      });
+    });
 
+
+      // input.addEventListener('enter', (event) => {
+      //   if (event.key == 'Backspace') return;
+      //   var converted = converter.convert(question.innerHTML).romaji;
+
+      //   if (input.value == converted)                     // if input matches symbol
+      //   {
+      //     nextLetter();
+      //   }
+      //   else                                          // else input does not match symbol
+      //   {
+      //     if (input.value.length == converted.length)  // if input length matches answer length
+      //     {
+      //       alert("wrong");
+      //     } else                                      // else input is too short to tell
+      //     {
+      //       // do nothing
+      //     }
+      //   }
+      // });
+      
       function nextLetter() {
         var previ = i;
         while (i == previ) {
