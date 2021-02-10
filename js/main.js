@@ -55,13 +55,15 @@
       var medSet = hiragana.filter(x => converter.convert(x).romaji.length == 2);  // set of two-letter chars
       var hardSet = hiragana.filter(x => converter.convert(x).romaji.length > 2);  // set of three-letter chars
       var checkboxes = document.querySelectorAll('input[type=checkbox]');     // user-controlled sets
+      var marked = [];
 
       console.log(checkboxes);
       checkboxes.forEach(check => 
         check.addEventListener('change', () => {
           if(this.checked = true)
           {
-            alert(this.value);
+            marked = document.querySelectorAll('input[type=checkbox]:checked')  //adds marked checkboxes to its own list
+            console.log(marked);  
           }
         }));
 
