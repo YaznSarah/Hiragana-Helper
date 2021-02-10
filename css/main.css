@@ -102,6 +102,11 @@ p  {
   background-color: #526d8f;
 }
 
+.chart {
+  font-size: 16pt;
+  flex-direction: row;
+}
+
 
 #maincontent {
   width: 800px;

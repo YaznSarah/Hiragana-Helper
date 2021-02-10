@@ -27,9 +27,10 @@
           <button class="tablink" onclick="changeTab(event, 'quizzer')">quizzer</button>
           <button class="tablink" onclick="changeTab(event, 'about')">about</button>
       </div>
-      <div  id="hiragana" class="container tabcontent">
-        <table class="chart">
+      <div id="hiragana" class="container tabcontent chart">
+        <table>
           <tr>
+            <td><input type="checkbox" id="h"></td>
             <td>あ</td>
             <td>い</td>
             <td>う</td>
@@ -37,6 +38,7 @@
             <td>お</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hk"></td>
             <td>か</td>
             <td>き</td>
             <td>く</td>
@@ -44,6 +46,7 @@
             <td>こ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hs"></td>
             <td>さ</td>
             <td>し</td>
             <td>す</td>
@@ -51,6 +54,7 @@
             <td>そ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="ht"></td>
             <td>た</td>
             <td>ち</td>
             <td>つ</td>
@@ -58,6 +62,7 @@
             <td>と</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hn"></td>
             <td>な</td>
             <td>に</td>
             <td>ぬ</td>
@@ -65,6 +70,7 @@
             <td>の</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hh"></td>
             <td>は</td>
             <td>ひ</td>
             <td>ふ</td>
@@ -72,6 +78,7 @@
             <td>ほ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hm"></td>
             <td>ま</td>
             <td>み</td>
             <td>む</td>
@@ -79,6 +86,7 @@
             <td>も</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hy"></td>
             <td>や</td>
             <td></td>
             <td>ゆ</td>
@@ -86,6 +94,7 @@
             <td>よ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hr"></td>
             <td>ら</td>
             <td>り</td>
             <td>る</td>
@@ -93,6 +102,7 @@
             <td>ろ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hw"></td>
             <td>わ</td>
             <td></td>
             <td></td>
@@ -100,13 +110,17 @@
             <td>を</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hn"></td>
             <td></td>
             <td></td>
             <td>ん</td>
             <td></td>
             <td></td>
           </tr>
+        </table>
+        <table>
           <tr>
+            <td><input type="checkbox" id="hg"></td>
             <td>が</td>
             <td>ぎ</td>
             <td>ぐ</td>
@@ -114,6 +128,7 @@
             <td>ご</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hz"></td>
             <td>ざ</td>
             <td>じ</td>
             <td>ず</td>
@@ -121,6 +136,7 @@
             <td>ぞ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hd"></td>
             <td>だ</td>
             <td></td>
             <td></td>
@@ -128,6 +144,7 @@
             <td>ど</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hb"></td>
             <td>ば</td>
             <td>び</td>
             <td>ぶ</td>
@@ -135,6 +152,7 @@
             <td>ぼ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="hp"></td>
             <td>ぱ</td>
             <td>ぴ</td>
             <td>ぷ</td>
@@ -144,8 +162,9 @@
         </table>
       </div>
       <div  id="katakana" class="container tabcontent">
-        <table class="chart">
+        <table class="chart" id="katakanachart">
           <tr>
+            <td><input type="checkbox" id="k"></td>
             <td>ア</td>
             <td>イ</td>
             <td>ウ</td>
@@ -153,6 +172,7 @@
             <td>オ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="kk"></td>
             <td>カ</td>
             <td>キ</td>
             <td>ク</td>
@@ -160,6 +180,7 @@
             <td>コ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="ks"></td>
             <td>サ</td>
             <td>シ</td>
             <td>ス</td>
@@ -167,6 +188,7 @@
             <td>ソ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="kt"></td>
             <td>タ</td>
             <td>チ</td>
             <td>ツ</td>
@@ -174,6 +196,7 @@
             <td>ト</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="kn"></td>
             <td>ナ</td>
             <td>ニ</td>
             <td>ヌ</td>
@@ -181,6 +204,7 @@
             <td>ノ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="kh"></td>
             <td>ハ</td>
             <td>ヒ</td>
             <td>フ</td>
@@ -188,6 +212,7 @@
             <td>ホ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="km"></td>
             <td>マ</td>
             <td>ミ</td>
             <td>ム</td>
@@ -195,6 +220,7 @@
             <td>モ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="ky"></td>
             <td>ヤ</td>
             <td></td>
             <td>ユ</td>
@@ -202,6 +228,7 @@
             <td>ヨ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="kr"></td>
             <td>ラ</td>
             <td>リ</td>
             <td>ル</td>
@@ -209,6 +236,7 @@
             <td>ロ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="kw"></td>
             <td>ワ</td>
             <td></td>
             <td></td>
@@ -216,6 +244,7 @@
             <td>ヲ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="kn"></td>
             <td></td>
             <td></td>
             <td>ン</td>
@@ -223,6 +252,7 @@
             <td></td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="kg"></td>
             <td>ガ</td>
             <td>ギ</td>
             <td>グ</td>
@@ -230,6 +260,7 @@
             <td>ゴ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="kz"></td>
             <td>ザ</td>
             <td>ジ</td>
             <td>ズ</td>
@@ -237,6 +268,7 @@
             <td>ゾ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="kd"></td>
             <td>ダ</td>
             <td></td>
             <td></td>
@@ -244,6 +276,7 @@
             <td>ド</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="kb"></td>
             <td>バ</td>
             <td>ビ</td>
             <td>ブ</td>
@@ -251,6 +284,7 @@
             <td>ボ</td>
           </tr>
           <tr>
+            <td><input type="checkbox" id="kp"></td>
             <td>パ</td>
             <td>ピ</td>
             <td>プ</td>
