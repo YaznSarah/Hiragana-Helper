@@ -75,13 +75,14 @@ p  {
 
 .menu {
   display: block;
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 500px;
   height: 500px;
 }
 
 .navbar {
   display: flex;
+  padding-top: 15px;
   flex-direction: row;
   width: 100%;
   font-size: smaller;

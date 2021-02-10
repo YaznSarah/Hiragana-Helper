@@ -12,3 +12,7 @@ function changeTab(evt, nextTab) {
     document.getElementById(nextTab).style.display = "flex";
     evt.currentTarget.className += " active";
 }
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+  changeTab(event, 'quizzer');
+});
