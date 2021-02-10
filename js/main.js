@@ -54,13 +54,25 @@
       var easySet = hiragana.filter(x => converter.convert(x).romaji.length < 2); // set of one-letter chars
       var medSet = hiragana.filter(x => converter.convert(x).romaji.length == 2);  // set of two-letter chars
       var hardSet = hiragana.filter(x => converter.convert(x).romaji.length > 2);  // set of three-letter chars
+      var checkboxes = document.querySelectorAll('input[type=checkbox]');     // user-controlled sets
 
+      console.log(checkboxes);
+      checkboxes.forEach(check => 
+        check.addEventListener('change', () => {
+          if(this.checked = true)
+          {
+            alert(this.value);
+          }
+        }));
+
+      // console.log(checkboxes);
       var tester = medSet;
 
       // initialize with random hiragana
       var i = Math.floor(Math.random() * tester.length);
       question.innerHTML = tester[i];
 
+    
       input.addEventListener('keypress', (e) => {                     
         if (e.key === 'Enter') {
           var converted = converter.convert(question.innerHTML).romaji;
