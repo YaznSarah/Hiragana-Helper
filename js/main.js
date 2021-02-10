@@ -55,15 +55,16 @@
       var medSet = hiragana.filter(x => converter.convert(x).romaji.length == 2);  // set of two-letter chars
       var hardSet = hiragana.filter(x => converter.convert(x).romaji.length > 2);  // set of three-letter chars
       var checkboxes = document.querySelectorAll('input[type=checkbox]');     // user-controlled sets
-      var marked = [];
+      var quizzerButton = document.getElementsByClassName("tablink")[2];
+      var markedSet = [];
 
       console.log(checkboxes);
       checkboxes.forEach(check => 
         check.addEventListener('change', () => {
           if(this.checked = true)
           {
-            marked = document.querySelectorAll('input[type=checkbox]:checked')  //adds marked checkboxes to its own list
-            console.log(marked);  
+            markedSet = document.querySelectorAll('input[type=checkbox]:checked')  //adds marked checkboxes to its own list
+            console.log(markedSet); 
           }
         }));
 
@@ -71,10 +72,25 @@
       var tester = medSet;
 
       // initialize with random hiragana
-      var i = Math.floor(Math.random() * tester.length);
-      question.innerHTML = tester[i];
-
     
+      function initializeQuiz()
+      {
+        if(markedSet.length == 0)
+        {
+          var i = Math.floor(Math.random() * tester.length);
+          question.innerHTML = tester[i];
+        }
+        else
+        {
+          var i = Math.floor(Math.random() * markedSet.length);
+          question.innerHTML = markedSet[i].id;
+        }
+      };
+      
+      quizzerButton.addEventListener('click', () => {
+        initializeQuiz();
+      })
+
       input.addEventListener('keypress', (e) => {                     
         if (e.key === 'Enter') {
           var converted = converter.convert(question.innerHTML).romaji;
