@@ -40,24 +40,26 @@
         'な', 'に', 'ぬ', 'ね', 'の',         // na-no
         'は', 'ひ', 'ふ', 'へ', 'ほ',         // ha-ho + fu
         'ま', 'み', 'む', 'め', 'も',         // ma-mo
-        'や', 'ゆ', 'よ',           // ya yu yo
+        'や', 'ゆ', 'よ',                     // ya yu yo
         'ら', 'り', 'る', 'れ', 'ろ',         // ra-ro
-        'わ', 'を',          // wa wo
-        'ん',             // n
+        'わ', 'を',                           // wa wo
+        'ん',                                 // n
         'が', 'ぎ', 'ぐ', 'げ', 'ご',          // ga-go
         'ざ', 'じ', 'ず', 'ぜ', 'ぞ',          // za-zo
-        'だ', 'で', 'ど',           // da-do
+        'だ', 'で', 'ど',                      // da-do
         'ば', 'び', 'ぶ', 'べ', 'ぼ',          // ba-bo
         'ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ',          // pa-po
       ];
 
-      var easySet = hiragana.filter(x => x.length < 2); // set of one-letter chars
-      var medSet = hiragana.filter(x => x.length == 2);  // set of two-letter chars
-      var hardSet = hiragana.filter(x => x.length > 2);  // set of three-letter chars
+      var easySet = hiragana.filter(x => converter.convert(x).romaji.length < 2); // set of one-letter chars
+      var medSet = hiragana.filter(x => converter.convert(x).romaji.length == 2);  // set of two-letter chars
+      var hardSet = hiragana.filter(x => converter.convert(x).romaji.length > 2);  // set of three-letter chars
+
+      var tester = easySet;
 
       // initialize with random hiragana
-      var i = Math.floor(Math.random() * hiragana.length);
-      question.innerHTML = hiragana[i];
+      var i = Math.floor(Math.random() * tester.length);
+      question.innerHTML = tester[i];
 
       input.addEventListener('keyup', (event) => {
         if (event.key == 'Backspace') return;
@@ -83,14 +85,14 @@
         var previ = i;
         while (i == previ) {
           console.log('loop');
-          i = Math.floor(Math.random() * hiragana.length)
+          i = Math.floor(Math.random() * tester.length)
         }
-        question.innerHTML = hiragana[i];
+        question.innerHTML = tester[i];
         input.value = "";
       };
     });
 
-
+/*-----------------------------BEGIN JP-CONVERT CODE-----------------------------*/
 
   }, { "jp-conversion": 2 }], 2: [function (require, module, exports) {
     // Always useful to have lying around
