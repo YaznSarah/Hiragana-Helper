@@ -2,7 +2,7 @@
   1: [function (require, module, exports) {
     document.addEventListener('DOMContentLoaded', function (event) {
       /*
-      Planned features: mostly in order of most to least important
+      Planned features: mostly in oadder of most to least important
       good idea of what we're trying to achieve here can be found at:
       https://realkana.com/
   
@@ -69,10 +69,6 @@
         {row:'kp', sym:['パ', 'ピ', 'プ', 'ペ', 'ポ']}
       ];
 
-      // var easySet = hiragana.filter(x => converter.convert(x).romaji.length < 2);   // set of one-letter chars
-      // var medSet = hiragana.filter(x => converter.convert(x).romaji.length == 2);   // set of two-letter chars
-      // var hardSet = hiragana.filter(x => converter.convert(x).romaji.length > 2);   // set of three-letter chars
-      var checkboxes = document.querySelectorAll('input[type=checkbox]');           // user-controlled sets
       var quizzerButton = document.getElementsByClassName("tablink")[2];            // quiz tab button
       var markedBoxes = [];                                                         // array of checked sets
       var tester = [];      
@@ -92,10 +88,11 @@
         question.innerHTML = "";
         // get all checked rows
         markedBoxes = document.querySelectorAll('input[type=checkbox]:checked');
-          console.log("marked: " + markedBoxes);
         // add checked rows to tester array
-        markedBoxes.forEach(box => tester = tester.concat(questions.find(r => r.row === box.id).sym));
-        console.log("tester: " + tester);
+        markedBoxes.forEach(function(box) {
+          if(box.name == "selectall") return; //ignore selectall checkboxes
+          tester = tester.concat(questions.find(r => r.row === box.id).sym)
+        });
         nextLetter();
       };
       
@@ -123,11 +120,15 @@
         input.value = "";
       };
 
+      
+
       nextLetter();
 
-    });
 
-    
+/*-----------------------------EXPERIMENTAL CODE-----------------------------*/
+
+});
+
 /*-----------------------------BEGIN JP-CONVERT CODE-----------------------------*/
 
   }, { "jp-conversion": 2 }], 2: [function (require, module, exports) {

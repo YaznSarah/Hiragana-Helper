@@ -16,3 +16,13 @@ function changeTab(evt, nextTab) {
 document.addEventListener("DOMContentLoaded", function(event) { 
   changeTab(event, 'hiragana');
   })
+
+  // function for function of "check all?" boxes
+  // @param source: the checkbox itself
+  // @param name: name of the checkboxes that should be affected
+  function toggle(source, name) {
+    var checkboxes = document.getElementsByName(name);
+    for(var checkbox of checkboxes) {
+      checkbox.checked = source.checked;
+    }
+  }
