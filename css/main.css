@@ -25,7 +25,6 @@ html {
 
 body {
     background-color: #222;
-    overflow: hidden;
 }
 
 /*
@@ -126,18 +125,9 @@ p  {
 
 #wide{
   display: block;
-  margin-left: 85%;
+  margin-left: auto;
   margin-right: auto;
   width: 50%;
-  margin-top: -50%;
-}
-
-#wide2{
-  display: block;
-  margin-left: -85%;
-  margin-right: 30%;
-  width: 50%;
-  margin-top: -27%;
 }
 
 #response {

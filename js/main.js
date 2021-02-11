@@ -30,12 +30,8 @@
       var question = document.getElementById("question"); // get question div from html
       var converter = require('jp-conversion');
       var wide = document.createElement("img");
-      var wide2 = document.createElement("img");
       wide.id = "wide";
       wide.src = "/src/images/wide.jpg";
-      wide2.id = "wide2";
-      wide2.src = "/src/images/wide.jpg";
-
 
       // hiragana reference
       const questions = [
@@ -145,8 +141,7 @@
 
       function wrongAnswer()
       {
-        document.getElementById("maincontent").appendChild(wide);
-        document.getElementById("maincontent").appendChild(wide2);
+        document.getElementById("question").appendChild(wide);
         // setTimeout(document.getElementById("question").removeChild(wide), 50000);
         wrong++;
       }
@@ -154,7 +149,6 @@
       function correctAnswer()
       {
         wide.remove();
-        wide2.remove();
         correct++;
       }
 
