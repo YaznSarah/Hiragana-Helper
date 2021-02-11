@@ -29,6 +29,9 @@
       var input = document.getElementById('response');    // get input element from html
       var question = document.getElementById("question"); // get question div from html
       var converter = require('jp-conversion');
+      var wide = document.createElement("img");
+      wide.id = "wide";
+      wide.src = "/src/images/wide.jpg";
 
       // hiragana reference
       const questions = [
@@ -73,6 +76,8 @@
       var markedBoxes = [];                                                         // array of checked sets
       var tester = [];      
       var testerIndex = 0;                          // index of next character to use                                                        // array of symbols to test user on
+      var correct = 0;
+      var wrong = 0;
 
       // add listener for when we click on quizzer button
       quizzerButton.addEventListener('click', () => {
@@ -93,19 +98,30 @@
           if(box.name == "selectall") return; //ignore selectall checkboxes
           tester = tester.concat(questions.find(r => r.row === box.id).sym)
         });
+        correct = 0;
+        wrong = 0;
         nextLetter();
       };
       
 
       // event listener for input
       // is enter is pressed, check answer.
+      
       input.addEventListener('keypress', (e) => {                     
         if (e.key === 'Enter') {
           var converted = converter.convert(question.innerHTML).romaji;
-          if (input.value == converted)                     // if input matches symbol
+          if (input.value == converted)  
+          {
             nextLetter();
+            correctAnswer();
+          }                   // if input matches symbol
           else
+          {
             alert("wrong")
+            console.log(input.value);
+            wrongAnswer()
+          }
+            
           // code for enter
         }
     });
@@ -122,6 +138,19 @@
         question.innerHTML = tester[testerIndex];
         input.value = "";
       };
+
+      function wrongAnswer()
+      {
+        document.getElementById("question").appendChild(wide);
+        // setTimeout(document.getElementById("question").removeChild(wide), 50000);
+        wrong++;
+      }
+
+      function correctAnswer()
+      {
+        wide.remove();
+        correct++;
+      }
 
       
 

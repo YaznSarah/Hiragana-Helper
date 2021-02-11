@@ -123,6 +123,13 @@ p  {
   font-size: 70pt;
 }
 
+#wide{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
 #response {
   margin-top: auto;
   padding: 2px 4px;
