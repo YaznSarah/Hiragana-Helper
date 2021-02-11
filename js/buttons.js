@@ -14,5 +14,5 @@ function changeTab(evt, nextTab) {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) { 
-  changeTab(event, 'quizzer');
+  changeTab(event, 'hiragana');
   })

@@ -31,7 +31,8 @@
       var converter = require('jp-conversion');
 
       // hiragana reference
-      const hiragana = [
+      const questions = [
+        //hiragana
         {row:'h', sym:['あ', 'い', 'う', 'え', 'お']},
         {row:'hk', sym:['か', 'き', 'く', 'け', 'こ']},
         {row:'hs', sym:['さ', 'し', 'す', 'せ', 'そ']},
@@ -47,11 +48,26 @@
         {row:'hz', sym:['ざ', 'じ', 'ず', 'ぜ', 'ぞ']},
         {row:'hd', sym:['だ', 'で', 'ど']},
         {row:'hb', sym:['ば', 'び', 'ぶ', 'べ', 'ぼ']},
-        {row:'hp', sym:['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ']}
+        {row:'hp', sym:['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ']},
+        
+        //katakana
+        {row:'k', sym:['ア', 'イ', 'ウ', 'エ', 'オ']},
+        {row:'kk', sym:['カ', 'キ', 'ク', 'ケ', 'コ']},
+        {row:'ks', sym:['サ', 'シ', 'ス', 'セ', 'ソ']},
+        {row:'kt', sym:['タ', 'チ', 'ツ', 'テ', 'ト']},
+        {row:'kn', sym:['ナ', 'ニ', 'ヌ', 'ネ', 'ノ']},
+        {row:'kh', sym:['ハ', 'ヒ', 'フ', 'ヘ', 'ほ']},
+        {row:'km', sym:['マ', 'ミ', 'ム', 'メ', 'モ']},
+        {row:'ky', sym:['ヤ', 'ユ', 'ヨ']},
+        {row:'kr', sym:['ラ', 'リ', 'ル', 'レ', 'ロ']},
+        {row:'kw', sym:['ワ', 'ヲ']},
+        {row:'kn', sym:['ン']},
+        {row:'kg', sym:['ガ', 'ギ', 'ク', 'ゲ', 'ゴ']},
+        {row:'kz', sym:['ジ', 'ジ', 'ズ', 'ゼ', 'ゾ']},
+        {row:'kd', sym:['ダ', 'デ', 'ド']},
+        {row:'kb', sym:['バ', 'ビ', 'ブ', 'ベ', 'ボ']},
+        {row:'kp', sym:['パ', 'ピ', 'プ', 'ペ', 'ポ']}
       ];
-
-      var r = hiragana.find(r => r.row === 'hm');
-      console.log(r.sym);
 
       // var easySet = hiragana.filter(x => converter.convert(x).romaji.length < 2);   // set of one-letter chars
       // var medSet = hiragana.filter(x => converter.convert(x).romaji.length == 2);   // set of two-letter chars
@@ -61,8 +77,6 @@
       var markedBoxes = [];                                                         // array of checked sets
       var tester = [];      
       var testerIndex = 0;                          // index of next character to use                                                        // array of symbols to test user on
-
-      console.log(checkboxes);
 
       // add listener for when we click on quizzer button
       quizzerButton.addEventListener('click', () => {
@@ -80,7 +94,7 @@
         markedBoxes = document.querySelectorAll('input[type=checkbox]:checked');
           console.log("marked: " + markedBoxes);
         // add checked rows to tester array
-        markedBoxes.forEach(box => tester = tester.concat(hiragana.find(r => r.row === box.id).sym));
+        markedBoxes.forEach(box => tester = tester.concat(questions.find(r => r.row === box.id).sym));
         console.log("tester: " + tester);
         nextLetter();
       };
@@ -100,12 +114,20 @@
     });
       
       function nextLetter() {
+        // if nothing is checked, use a-o as default row.
+        if(tester.length == 0 || tester === undefined) {
+          tester = ['あ','い','う','え','お']
+        }
         testerIndex = Math.floor(Math.random() * tester.length)
         question.innerHTML = tester[testerIndex];
         input.value = "";
       };
+
+      nextLetter();
+
     });
 
+    
 /*-----------------------------BEGIN JP-CONVERT CODE-----------------------------*/
 
   }, { "jp-conversion": 2 }], 2: [function (require, module, exports) {
