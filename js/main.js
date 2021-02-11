@@ -29,68 +29,65 @@
       var input = document.getElementById('response');    // get input element from html
       var question = document.getElementById("question"); // get question div from html
       var converter = require('jp-conversion');
-      var convert = require('jp-conversion');
 
-      // call checkAnswer each time a new character is entered
+      // hiragana reference
       const hiragana = [
-        'あ', 'い', 'う', 'え', 'お',         // a - o
-        'か', 'き', 'く', 'け', 'こ',         // ka-ko
-        'さ', 'し', 'す', 'せ', 'そ',         // sa-so
-        'た', 'ち', 'つ', 'て', 'と',         // ta chi tsu te to
-        'な', 'に', 'ぬ', 'ね', 'の',         // na-no
-        'は', 'ひ', 'ふ', 'へ', 'ほ',         // ha-ho + fu
-        'ま', 'み', 'む', 'め', 'も',         // ma-mo
-        'や', 'ゆ', 'よ',                     // ya yu yo
-        'ら', 'り', 'る', 'れ', 'ろ',         // ra-ro
-        'わ', 'を',                           // wa wo
-        'ん',                                 // n
-        'が', 'ぎ', 'ぐ', 'げ', 'ご',          // ga-go
-        'ざ', 'じ', 'ず', 'ぜ', 'ぞ',          // za-zo
-        'だ', 'で', 'ど',                      // da-do
-        'ば', 'び', 'ぶ', 'べ', 'ぼ',          // ba-bo
-        'ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ',          // pa-po
+        {row:'h', sym:['あ', 'い', 'う', 'え', 'お']},
+        {row:'hk', sym:['か', 'き', 'く', 'け', 'こ']},
+        {row:'hs', sym:['さ', 'し', 'す', 'せ', 'そ']},
+        {row:'ht', sym:['た', 'ち', 'つ', 'て', 'と']},
+        {row:'hn', sym:['な', 'に', 'ぬ', 'ね', 'の']},
+        {row:'hh', sym:['は', 'ひ', 'ふ', 'へ', 'ほ']},
+        {row:'hm', sym:['ま', 'み', 'む', 'め', 'も']},
+        {row:'hy', sym:['や', 'ゆ', 'よ']},
+        {row:'hr', sym:['ら', 'り', 'る', 'れ', 'ろ']},
+        {row:'hw', sym:['わ', 'を']},
+        {row:'hn', sym:['ん']},
+        {row:'hg', sym:['が', 'ぎ', 'ぐ', 'げ', 'ご']},
+        {row:'hz', sym:['ざ', 'じ', 'ず', 'ぜ', 'ぞ']},
+        {row:'hd', sym:['だ', 'で', 'ど']},
+        {row:'hb', sym:['ば', 'び', 'ぶ', 'べ', 'ぼ']},
+        {row:'hp', sym:['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ']}
       ];
 
-      var easySet = hiragana.filter(x => converter.convert(x).romaji.length < 2); // set of one-letter chars
-      var medSet = hiragana.filter(x => converter.convert(x).romaji.length == 2);  // set of two-letter chars
-      var hardSet = hiragana.filter(x => converter.convert(x).romaji.length > 2);  // set of three-letter chars
-      var checkboxes = document.querySelectorAll('input[type=checkbox]');     // user-controlled sets
-      var quizzerButton = document.getElementsByClassName("tablink")[2];
-      var markedSet = [];
+      var r = hiragana.find(r => r.row === 'hm');
+      console.log(r.sym);
+
+      // var easySet = hiragana.filter(x => converter.convert(x).romaji.length < 2);   // set of one-letter chars
+      // var medSet = hiragana.filter(x => converter.convert(x).romaji.length == 2);   // set of two-letter chars
+      // var hardSet = hiragana.filter(x => converter.convert(x).romaji.length > 2);   // set of three-letter chars
+      var checkboxes = document.querySelectorAll('input[type=checkbox]');           // user-controlled sets
+      var quizzerButton = document.getElementsByClassName("tablink")[2];            // quiz tab button
+      var markedBoxes = [];                                                         // array of checked sets
+      var tester = [];      
+      var testerIndex = 0;                          // index of next character to use                                                        // array of symbols to test user on
 
       console.log(checkboxes);
-      checkboxes.forEach(check => 
-        check.addEventListener('change', () => {
-          if(this.checked = true)
-          {
-            markedSet = document.querySelectorAll('input[type=checkbox]:checked')  //adds marked checkboxes to its own list
-            console.log(markedSet); 
-          }
-        }));
 
-      // console.log(checkboxes);
-      var tester = medSet;
-
-      // initialize with random hiragana
-    
-      function initializeQuiz()
-      {
-        if(markedSet.length == 0)
-        {
-          var i = Math.floor(Math.random() * tester.length);
-          question.innerHTML = tester[i];
-        }
-        else
-        {
-          var i = Math.floor(Math.random() * markedSet.length);
-          question.innerHTML = markedSet[i].id;
-        }
-      };
-      
+      // add listener for when we click on quizzer button
       quizzerButton.addEventListener('click', () => {
         initializeQuiz();
       })
 
+      // initialize tester array with checked boxes
+      // TODO add case when nothing is checked
+      function initializeQuiz()
+      {
+        // clear tester array
+        tester = [];
+        question.innerHTML = "";
+        // get all checked rows
+        markedBoxes = document.querySelectorAll('input[type=checkbox]:checked');
+          console.log("marked: " + markedBoxes);
+        // add checked rows to tester array
+        markedBoxes.forEach(box => tester = tester.concat(hiragana.find(r => r.row === box.id).sym));
+        console.log("tester: " + tester);
+        nextLetter();
+      };
+      
+
+      // event listener for input
+      // is enter is pressed, check answer.
       input.addEventListener('keypress', (e) => {                     
         if (e.key === 'Enter') {
           var converted = converter.convert(question.innerHTML).romaji;
@@ -101,35 +98,10 @@
           // code for enter
         }
     });
-
-
-      // input.addEventListener('enter', (event) => {
-      //   if (event.key == 'Backspace') return;
-      //   var converted = converter.convert(question.innerHTML).romaji;
-
-      //   if (input.value == converted)                     // if input matches symbol
-      //   {
-      //     nextLetter();
-      //   }
-      //   else                                          // else input does not match symbol
-      //   {
-      //     if (input.value.length == converted.length)  // if input length matches answer length
-      //     {
-      //       alert("wrong");
-      //     } else                                      // else input is too short to tell
-      //     {
-      //       // do nothing
-      //     }
-      //   }
-      // });
       
       function nextLetter() {
-        var previ = i;
-        while (i == previ) {
-          console.log('loop');
-          i = Math.floor(Math.random() * tester.length)
-        }
-        question.innerHTML = tester[i];
+        testerIndex = Math.floor(Math.random() * tester.length)
+        question.innerHTML = tester[testerIndex];
         input.value = "";
       };
     });
