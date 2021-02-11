@@ -46,7 +46,7 @@
         {row:'hn', sym:['ん']},
         {row:'hg', sym:['が', 'ぎ', 'ぐ', 'げ', 'ご']},
         {row:'hz', sym:['ざ', 'じ', 'ず', 'ぜ', 'ぞ']},
-        {row:'hd', sym:['だ', 'で', 'ど']},
+        {row:'hd', sym:['だ',　'づ',　'ぢ','で', 'ど']},
         {row:'hb', sym:['ば', 'び', 'ぶ', 'べ', 'ぼ']},
         {row:'hp', sym:['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ']},
         
@@ -63,8 +63,8 @@
         {row:'kw', sym:['ワ', 'ヲ']},
         {row:'kn', sym:['ン']},
         {row:'kg', sym:['ガ', 'ギ', 'ク', 'ゲ', 'ゴ']},
-        {row:'kz', sym:['ジ', 'ジ', 'ズ', 'ゼ', 'ゾ']},
-        {row:'kd', sym:['ダ', 'デ', 'ド']},
+        {row:'kz', sym:['ザ', 'ジ', 'ズ', 'ゼ', 'ゾ']},
+        {row:'kd', sym:['ダ',　'ヂ',　'ヅ',　'デ', 'ド']},
         {row:'kb', sym:['バ', 'ビ', 'ブ', 'ベ', 'ボ']},
         {row:'kp', sym:['パ', 'ピ', 'プ', 'ペ', 'ポ']}
       ];
@@ -115,7 +115,10 @@
         if(tester.length == 0 || tester === undefined) {
           tester = ['あ','い','う','え','お']
         }
-        testerIndex = Math.floor(Math.random() * tester.length)
+        var temp = testerIndex;
+        while(testerIndex == temp) {
+          testerIndex = Math.floor(Math.random() * tester.length)
+        }
         question.innerHTML = tester[testerIndex];
         input.value = "";
       };
@@ -405,8 +408,8 @@
     addMapping('twe', 'とぇ');
     addMapping('two', 'とぉ');
 
-    addMapping('dzu', 'づ');    // deviation from standard - I disagree with this mapping missing so much I refuse to not offer it.
-    addMapping('dzi', 'ぢ');    // deviation from standard - I disagree with this mapping missing so much I refuse to not offer it.
+    addMapping('zu', 'づ');    // deviation from standard - I disagree with this mapping missing so much I refuse to not offer it.
+    addMapping('ji', 'ぢ');    // deviation from standard - I disagree with this mapping missing so much I refuse to not offer it.
 
     addMapping('da', 'だ');
     addMapping('di', 'ぢ');
