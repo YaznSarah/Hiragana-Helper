@@ -32,9 +32,9 @@
       var wide = document.createElement("img");
       var wide2 = document.createElement("img");
       wide.id = "wide";
-      wide.src = ".../src/images/wide.jpg";
+      wide.src = "../src/images/wide.jpg";
       wide2.id = "wide2";
-      wide2.src = ".../src/images/wide.jpg";
+      wide2.src = "../src/images/wide.jpg";
 
 
       // hiragana reference
