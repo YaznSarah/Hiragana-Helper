@@ -140,12 +140,14 @@
         }
         question.innerHTML = tester[testerIndex];
         input.value = "";
+        document.getElementById("wide").style.visibility = "hidden";
+        document.getElementById("wide2").style.visibility = "hidden";
       };
 
       function wrongAnswer()
       {
-        document.getElementById("maincontent").appendChild(wide);
-        document.getElementById("maincontent").appendChild(wide2);
+        document.getElementById("wide").style.visibility = "visible";
+        document.getElementById("wide2").style.visibility = "visible";
         // setTimeout(document.getElementById("question").removeChild(wide), 50000);
         wrong++;
       }

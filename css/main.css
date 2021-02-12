@@ -129,7 +129,8 @@ p  {
   margin-left: 85%;
   margin-right: auto;
   width: 50%;
-  margin-top: -50%;
+  margin-top: 10%;
+  visibility: hidden;
 }
 
 #wide2{
@@ -138,6 +139,7 @@ p  {
   margin-right: 30%;
   width: 50%;
   margin-top: -27%;
+  visibility: hidden;
 }
 
 #response {
