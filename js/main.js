@@ -139,10 +139,10 @@
 
       function wrongAnswer()
       {
-        let wide = wide;
+        let wide = document.getElementById("wide")
         let wide2 = document.getElementById("wide2")
         wide.style.visibility = "visible";
-        document.getElementById("wide2").style.visibility = "visible";
+        wide2.style.visibility = "visible";
         // setTimeout(document.getElementById("question").removeChild(wide), 50000);
         wrong++;
       }
