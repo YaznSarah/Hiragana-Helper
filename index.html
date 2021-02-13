@@ -25,7 +25,7 @@
       </div>
       <div id="hiragana" class="container tabcontent">
         <h3>hiragana</h3>
-        <label for="selectall">
+        <label for="selectall" onclick="clickChild(this)">
           <input type="checkbox" name="selectall" onClick="toggle(this, 'hira')">
           check all
         </label>
@@ -88,14 +88,6 @@
               <td>め<br><span class="subtext">me</span></td>
               <td>も<br><span class="subtext">mo</span></td>
             </tr>
-            <tr onClick="check('hy')">
-              <td><input type="checkbox" name="hira" id="hy"></td>
-              <td>や<br><span class="subtext">ya</span></td>
-              <td></td>
-              <td>ゆ<br><span class="subtext">yu</span></td>
-              <td></td>
-              <td>よ<br><span class="subtext">yo</span></td>
-            </tr>
             <tr onClick="check('hr')">
               <td><input type="checkbox" name="hira" id="hr"></td>
               <td>ら<br><span class="subtext">ra</span></td>
@@ -103,22 +95,6 @@
               <td>る<br><span class="subtext">ru</span></td>
               <td>れ<br><span class="subtext">re</span></td>
               <td>ろ<br><span class="subtext">ro</span></td>
-            </tr>
-            <tr onClick="check('hw')">
-              <td><input type="checkbox" name="hira" id="hw"></td>
-              <td>わ<br><span class="subtext">wa</span></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>を<br><span class="subtext">wo</span></td>
-            </tr>
-            <tr onClick="check('hnn')">
-              <td><input type="checkbox" name="hira" id="hnn"></td>
-              <td></td>
-              <td></td>
-              <td>ん<br><span class="subtext">n</span></td>
-              <td></td>
-              <td></td>
             </tr>
           </table>
           <table>
@@ -165,11 +141,39 @@
               <td>ぽ<br><span class="subtext">po</span></td>
             </tr>
           </table>
+          <table>
+            <tr class="empty"><td><input type="checkbox"></td></tr>
+            <tr class="empty"><td><input type="checkbox"></td></tr>
+            <tr onClick="check('hy')">
+              <td><input type="checkbox" name="hira" id="hy"></td>
+              <td>や<br><span class="subtext">ya</span></td>
+              <td></td>
+              <td>ゆ<br><span class="subtext">yu</span></td>
+              <td></td>
+              <td>よ<br><span class="subtext">yo</span></td>
+            </tr>
+            <tr onClick="check('hw')">
+              <td><input type="checkbox" name="hira" id="hw"></td>
+              <td>わ<br><span class="subtext">wa</span></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>を<br><span class="subtext">wo</span></td>
+            </tr>
+            <tr onClick="check('hnn')">
+              <td><input type="checkbox" name="hira" id="hnn"></td>
+              <td></td>
+              <td></td>
+              <td>ん<br><span class="subtext">n</span></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
         </div>
       </div>
       <div  id="katakana" class="container tabcontent">
         <h3>katakana</h3>
-        <label for="selectall">
+        <label for="selectall" onclick="clickChild(this)">
           <input type="checkbox" name="selectall" onClick="toggle(this, 'kata')">
           check all
         </label>
@@ -231,14 +235,6 @@
               <td>メ<br><span class="subtext">me</span></td>
               <td>モ<br><span class="subtext">mo</span></td>
             </tr>
-            <tr onClick="check('ky')">
-              <td><input type="checkbox" name="kata" id="ky"></td>
-              <td>ヤ<br><span class="subtext">ya</span></td>
-              <td></td>
-              <td>ユ<br><span class="subtext">yu</span></td>
-              <td></td>
-              <td>ヨ<br><span class="subtext">yo</span></td>
-            </tr>
             <tr onClick="check('kr')">
               <td><input type="checkbox" name="kata" id="kr"></td>
               <td>ラ<br><span class="subtext">ra</span></td>
@@ -246,22 +242,6 @@
               <td>ル<br><span class="subtext">ru</span></td>
               <td>レ<br><span class="subtext">re</span></td>
               <td>ロ<br><span class="subtext">ro</span></td>
-            </tr>
-            <tr onClick="check('kw')">
-              <td><input type="checkbox" name="kata" id="kw"></td>
-              <td>ワ<br><span class="subtext">wa</span></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td>ヲ<br><span class="subtext">wo</span></td>
-            </tr>
-            <tr onClick="check('knn')">
-              <td><input type="checkbox" name="kata" id="knn"></td>
-              <td></td>
-              <td></td>
-              <td>ン<br><span class="subtext">n</span></td>
-              <td></td>
-              <td></td>
             </tr>
           </table>
           <table>
@@ -306,6 +286,34 @@
               <td>プ<br><span class="subtext">pu</span></td>
               <td>ペ<br><span class="subtext">pe</span></td>
               <td>ポ<br><span class="subtext">po</span></td>
+            </tr>
+          </table>
+          <table>
+            <tr class="empty"><td><input type="checkbox"></td></tr>
+            <tr class="empty"><td><input type="checkbox"></td></tr>
+            <tr onClick="check('ky')">
+              <td><input type="checkbox" name="kata" id="ky"></td>
+              <td>ヤ<br><span class="subtext">ya</span></td>
+              <td></td>
+              <td>ユ<br><span class="subtext">yu</span></td>
+              <td></td>
+              <td>ヨ<br><span class="subtext">yo</span></td>
+            </tr>
+            <tr onClick="check('kw')">
+              <td><input type="checkbox" name="kata" id="kw"></td>
+              <td>ワ<br><span class="subtext">wa</span></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td>ヲ<br><span class="subtext">wo</span></td>
+            </tr>
+            <tr onClick="check('knn')">
+              <td><input type="checkbox" name="kata" id="knn"></td>
+              <td></td>
+              <td></td>
+              <td>ン<br><span class="subtext">n</span></td>
+              <td></td>
+              <td></td>
             </tr>
           </table>
         </div>

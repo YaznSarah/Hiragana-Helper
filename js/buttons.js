@@ -31,3 +31,7 @@ function toggle(source, name) {
     checkbox.checked = source.checked;
   }
 }
+
+function clickChild(source) {
+  source.children[0].click();
+}
