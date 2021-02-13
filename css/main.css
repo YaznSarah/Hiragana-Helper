@@ -28,6 +28,10 @@ body {
     overflow: hidden;
 }
 
+input {
+  font-size: 24pt;
+}
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -54,6 +58,7 @@ body {
 
 
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,15 +72,17 @@ body {
 }
 
 .maintext  {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 50px;
   font-size: 18pt;
   line-height: 13pt;
 }
 
 .subtext {
   color: #ccc;
-  font-size: 12pt;
+  font-size: 10pt;
   line-height: 0;
+  font-style: italic;
 }
 
 .menu {
@@ -114,15 +121,34 @@ body {
   margin: 0 50px;
 }
 
-.chart > table {
+.chart tr{
+  cursor: pointer;
+  width: 200px;
+}
+
+.chart td{
+  height: 50px;
+  width: 150px;
+}
+
+.chart{
+  line-height: 13pt;
+  user-select: none;
+}
+
+.chart table {
+  table-layout: fixed;
   margin: 0 25px;
+  border-spacing: 0;
 }
 
 .empty {
   visibility: hidden;
 }
 
-
+[name="hira"], [name="kana"] {
+  pointer-events: none;
+}
 
 
 #maincontent {
@@ -137,25 +163,30 @@ body {
 }
 
 #question {
+  position: relative;
   margin: auto;
   font-size: 70pt;
+  display: block;
+  width: 100%;
 }
 
-#wide{
-  display: block;
-  margin-left: 85%;
-  margin-right: auto;
-  width: 50%;
-  margin-top: 10%;
+#kanaquestion {
+  margin: 50px;
+}
+
+#wide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
   visibility: hidden;
 }
 
 #wide2{
-  display: block;
-  margin-left: -85%;
-  margin-right: 30%;
-  width: 50%;
-  margin-top: -27%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
   visibility: hidden;
 }
 

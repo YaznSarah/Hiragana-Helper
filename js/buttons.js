@@ -1,3 +1,8 @@
+// set default page to certain tab on document ready
+document.addEventListener("DOMContentLoaded", function(event) { 
+  changeTab(event, 'hiragana');
+  })
+
 //function to change pages and highligh/de-light buttons
 //nextPage: the page which we are changing to.
 function changeTab(evt, nextTab) {
@@ -13,16 +18,16 @@ function changeTab(evt, nextTab) {
     evt.currentTarget.className += " active";
 }
 
-document.addEventListener("DOMContentLoaded", function(event) { 
-  changeTab(event, 'hiragana');
-  })
+function check(id) {
+  document.getElementById(id).checked = !document.getElementById(id).checked;
+}
 
-  // function for function of "check all?" boxes
-  // @param source: the checkbox itself
-  // @param name: name of the checkboxes that should be affected
-  function toggle(source, name) {
-    var checkboxes = document.getElementsByName(name);
-    for(var checkbox of checkboxes) {
-      checkbox.checked = source.checked;
-    }
+// function for function of "check all?" boxes
+// @param source: the checkbox itself
+// @param name: name of the checkboxes that should be affected
+function toggle(source, name) {
+  var checkboxes = document.getElementsByName(name);
+  for(var checkbox of checkboxes) {
+    checkbox.checked = source.checked;
   }
+}

@@ -27,7 +27,7 @@
 
 
       var input = document.getElementById('response');    // get input element from html
-      var question = document.getElementById("question"); // get question div from html
+      var question = document.getElementById("kanaquestion"); // get question div from html
       var converter = require('jp-conversion');
 
 
@@ -44,7 +44,7 @@
         {row:'hy', sym:['や', 'ゆ', 'よ']},
         {row:'hr', sym:['ら', 'り', 'る', 'れ', 'ろ']},
         {row:'hw', sym:['わ', 'を']},
-        {row:'hn', sym:['ん']},
+        {row:'hnn', sym:['ん']},
         {row:'hg', sym:['が', 'ぎ', 'ぐ', 'げ', 'ご']},
         {row:'hz', sym:['ざ', 'じ', 'ず', 'ぜ', 'ぞ']},
         {row:'hd', sym:['だ',　'づ',　'ぢ','で', 'ど']},
@@ -62,7 +62,7 @@
         {row:'ky', sym:['ヤ', 'ユ', 'ヨ']},
         {row:'kr', sym:['ラ', 'リ', 'ル', 'レ', 'ロ']},
         {row:'kw', sym:['ワ', 'ヲ']},
-        {row:'kn', sym:['ン']},
+        {row:'knn', sym:['ン']},
         {row:'kg', sym:['ガ', 'ギ', 'ク', 'ゲ', 'ゴ']},
         {row:'kz', sym:['ザ', 'ジ', 'ズ', 'ゼ', 'ゾ']},
         {row:'kd', sym:['ダ',　'ヂ',　'ヅ',　'デ', 'ド']},
@@ -90,7 +90,7 @@
         tester = [];
         question.innerHTML = "";
         // get all checked rows
-        markedBoxes = document.querySelectorAll('input[type=checkbox]:checked');
+        markedBoxes = document.querySelectorAll('input[name=hira]:checked,input[name=kata]:checked');
         // add checked rows to tester array
         markedBoxes.forEach(function(box) {
           if(box.name == "selectall") return; //ignore selectall checkboxes
@@ -115,7 +115,6 @@
           }                   // if input matches symbol
           else
           {
-            alert("wrong")
             wrongAnswer()
           }
             
@@ -135,6 +134,7 @@
         }
         question.innerHTML = tester[testerIndex];
         input.value = "";
+        console.log(correct + " correct - "+ wrong + " wrong");
       };
 
       function wrongAnswer()
@@ -151,10 +151,6 @@
         document.getElementById("wide2").style.visibility = "hidden";
         correct++;
       }
-
-      
-
-      nextLetter();
 
 
 /*-----------------------------EXPERIMENTAL CODE-----------------------------*/
