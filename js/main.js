@@ -29,12 +29,6 @@
       var input = document.getElementById('response');    // get input element from html
       var question = document.getElementById("question"); // get question div from html
       var converter = require('jp-conversion');
-      var wide = document.createElement("img");
-      var wide2 = document.createElement("img");
-      wide.id = "wide";
-      wide.src = "../src/images/wide.jpg";
-      wide2.id = "wide2";
-      wide2.src = "../src/images/wide.jpg";
 
 
       // hiragana reference
@@ -134,14 +128,13 @@
         if(tester.length == 0 || tester === undefined) {
           tester = ['あ','い','う','え','お']
         }
+        // choose a random index, ensuring we don't roll the same kana twice in a row
         var temp = testerIndex;
         while(testerIndex == temp) {
           testerIndex = Math.floor(Math.random() * tester.length)
         }
         question.innerHTML = tester[testerIndex];
         input.value = "";
-        document.getElementById("wide").style.visibility = "hidden";
-        document.getElementById("wide2").style.visibility = "hidden";
       };
 
       function wrongAnswer()
@@ -154,8 +147,8 @@
 
       function correctAnswer()
       {
-        wide.remove();
-        wide2.remove();
+        document.getElementById("wide").style.visibility = "hidden";
+        document.getElementById("wide2").style.visibility = "hidden";
         correct++;
       }
 

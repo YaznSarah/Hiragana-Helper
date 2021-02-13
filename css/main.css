@@ -17,8 +17,8 @@
 }
 
 html {
-  color: #ddd;
-  font-size: 2em;
+  color: #eee;
+  font-size: 18pt;
   line-height: 1.4;
   font-family: 'Open Sans', sans-serif;
 }
@@ -66,12 +66,16 @@ body {
   display: none;
 }
 
-.subtext {
-  font-size: 16pt;
+.maintext  {
+  margin: 0;
+  font-size: 18pt;
+  line-height: 13pt;
 }
 
-p  {
-  margin: 0;
+.subtext {
+  color: #ccc;
+  font-size: 12pt;
+  line-height: 0;
 }
 
 .menu {
@@ -90,7 +94,7 @@ p  {
 }
 
 .navbar > .tablink {
-  color: #ddd;
+  color: #eee;
   background-color: #222;
   margin: auto;
   -moz-user-select: none;
@@ -104,8 +108,21 @@ p  {
 
 .chart {
   font-size: 16pt;
+  display: flex;
   flex-direction: row;
+  align-items: flex-start;
+  margin: 0 50px;
 }
+
+.chart > table {
+  margin: 0 25px;
+}
+
+.empty {
+  visibility: hidden;
+}
+
+
 
 
 #maincontent {
