@@ -139,25 +139,14 @@
 
       function wrongAnswer()
       {
-        let wide = document.getElementById("wide")
-        let wide2 = document.getElementById("wide2")
-        wide.style.visibility = "visible";
-        wide2.style.visibility = "visible";
-        // setTimeout(document.getElementById("question").removeChild(wide), 50000);
         wrong++;
+        wideIn()
       }
 
       function correctAnswer()
       {
-        let wide = document.getElementById("wide")
-        let wide2 = document.getElementById("wide2")
-        wide.style.visibility = "hidden";
-        wide.style.opacity = "0";
-        wide.style.transition = "visibility 0s linear 300ms, opacity 300ms";
-        wide2.style.visibility = "hidden";
-        wide2.style.opacity = "0";
-        wide2.style.transition = "visibility 0s linear 300ms, opacity 300ms";
         correct++;
+        wideFadeAway()();
       }
 
 
