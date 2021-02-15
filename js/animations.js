@@ -1,5 +1,9 @@
-let wide2 = document.getElementById("wide2");
-let wide = document.getElementById("wide");
+document.addEventListener("DOMContentLoaded", function(event) { 
+    let wide2 = document.getElementById("wide2");
+    let wide = document.getElementById("wide");
+    
+ })
+
 
 function wideFadeAway()
 {

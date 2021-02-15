@@ -146,7 +146,7 @@
       function correctAnswer()
       {
         correct++;
-        wideFadeAway()();
+        wideFadeAway();
       }
 
 

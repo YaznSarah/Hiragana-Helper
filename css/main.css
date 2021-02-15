@@ -184,7 +184,8 @@ label {
   top: 0;
   left: 0;
   width: 30%;
-  visibility: hidden;
+  transition: "opacity 300ms";
+  opacity: 0;
 }
 
 #wide2{
@@ -192,7 +193,8 @@ label {
   top: 0;
   right: 0;
   width: 30%;
-  visibility: hidden;
+  transition: "opacity 300ms";
+  opacity: 0;
 }
 
 #response {
