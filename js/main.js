@@ -29,6 +29,7 @@
       var input = document.getElementById('response');    // get input element from html
       var question = document.getElementById("kanaquestion"); // get question div from html
       var converter = require('jp-conversion');
+      var footer = document.getElementById("footer");
 
 
       // hiragana reference
@@ -98,6 +99,7 @@
         });
         correct = 0;
         wrong = 0;
+        totalAttempts = 1;
         nextLetter();
       };
       
@@ -108,13 +110,18 @@
       input.addEventListener('keypress', (e) => {                     
         if (e.key === 'Enter') {
           var converted = converter.convert(question.innerHTML).romaji;
-          if (input.value == converted)  
+          // console.log(totalAttempts);
+          if (input.value.length == 0)
+          {}  // if input is empty and enter is pressed do nothing
+          else if (input.value == converted)  
           {
+            correct++;
             nextLetter();
             correctAnswer();
           }                   // if input matches symbol
           else
           {
+            wrong++;
             wrongAnswer()
           }
             
@@ -135,17 +142,20 @@
         question.innerHTML = tester[testerIndex];
         input.value = "";
         console.log(correct + " correct - "+ wrong + " wrong");
+        score = (correct/totalAttempts);
+        footer.innerHTML = Math.round(score*100) + "%";
+  
       };
 
       function wrongAnswer()
       {
-        wrong++;
+        totalAttempts++;
         wideIn()
       }
 
       function correctAnswer()
       {
-        correct++;
+        totalAttempts++;
         wideFadeAway();
       }
 
