@@ -16,6 +16,7 @@ function changeTab(evt, nextTab) {
     }
     document.getElementById(nextTab).style.display = "flex";
     evt.currentTarget.className += " active";
+    footer.innerHTML = "";
 }
 
 function check(id) {
