@@ -23,6 +23,9 @@
           light/dark modes
           switch between different typefaces
           autosubmit answer without pressing "enter" each time
+
+      Things to fix:
+          Checkboxes failing to toggle when you keep clicking on them
       */
 
 
@@ -113,7 +116,7 @@
           // console.log(totalAttempts);
           if (input.value.length == 0)
           {}  // if input is empty and enter is pressed do nothing
-          else if (input.value == converted)  
+          else if (input.value.toLowerCase() == converted)  
           {
             correct++;
             nextLetter();
