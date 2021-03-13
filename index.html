@@ -25,10 +25,12 @@
       </div>
       <div id="hiragana" class="container tabcontent">
         <h3>hiragana</h3>
-        <label for="selectall" onclick="clickChild(this)">
-          <input type="checkbox" name="selectall" onClick="toggle(this, 'hira')">
-          check all
-        </label>
+        <div onclick="toggleHira();">
+          <label for="selectall">
+            <input type="checkbox" id="hiraAllBox" name="selectall">
+            check all
+          </label>
+        </div>
         <div class="chart">
           <table>
             <tr onClick="check('h')">
@@ -173,10 +175,12 @@
       </div>
       <div  id="katakana" class="container tabcontent">
         <h3>katakana</h3>
-        <label for="selectall" onclick="clickChild(this)">
-          <input type="checkbox" name="selectall" onClick="toggle(this, 'kata')">
+        <div onclick="toggleKata();">
+        <label for="selectall">
+          <input type="checkbox" name="selectall" id="kataAllBox">
           check all
         </label>
+        </div>
         <div class="chart">
           <table class="chart" id="katakanachart">
             <tr onClick="check('k')">
@@ -324,7 +328,7 @@
           <img id = "wide" src = "/src/images/wide.jpg">
           <img id = "wide2" src = "/src/images/wide.jpg">
           <p id="kanaquestion"></p>
-          <input type="text" id="response" maxlength="6"></input>
+          <input type="text" id="response" class="" maxlength="6"></input>
         </div>
       </div>
       <div id = "footer"></div>

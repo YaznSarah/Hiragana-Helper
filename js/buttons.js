@@ -26,8 +26,19 @@ function check(id) {
 // function for function of "check all?" boxes
 // @param source: the checkbox itself
 // @param name: name of the checkboxes that should be affected
-function toggle(source, name) {
-  var checkboxes = document.getElementsByName(name);
+function toggleHira() {
+  var source = document.getElementById("hiraAllBox");
+  source.checked = !source.checked;
+  var checkboxes = document.getElementsByName("hira");
+  for(var checkbox of checkboxes) {
+    checkbox.checked = source.checked;
+  }
+}
+
+function toggleKata() {
+  var source = document.getElementById("kataAllBox");
+  source.checked = !source.checked;
+  var checkboxes = document.getElementsByName("kata");
   for(var checkbox of checkboxes) {
     checkbox.checked = source.checked;
   }

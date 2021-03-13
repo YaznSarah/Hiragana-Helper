@@ -30,6 +30,7 @@ body {
 
 input {
   font-size: 24pt;
+  pointer-events: none;
 }
 
 label {
@@ -189,7 +190,7 @@ label {
   top: 0;
   left: 0;
   width: 30%;
-  transition: "opacity 300ms";
+  transition: opacity 300ms;
   opacity: 0;
 }
 
@@ -198,8 +199,12 @@ label {
   top: 0;
   right: 0;
   width: 30%;
-  transition: "opacity 300ms";
+  transition: opacity 300ms;
   opacity: 0;
+}
+
+#wide.incorrect, #wide2.incorrect {
+  opacity: 1;
 }
 
 #response {
@@ -208,4 +213,13 @@ label {
   height: 50px;
   width: 150px;
   text-align: center;
+  transition: border 300ms;
+}
+
+.incorrect#response {
+  border: solid red 2px;
+}
+
+textarea:focus, input:focus, .tablink:focus{
+  outline: none;
 }

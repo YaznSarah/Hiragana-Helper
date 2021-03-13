@@ -8,11 +8,11 @@
   
   
       Functionality:
-          implement single hiragana characters
-          toggle on/off certain character rows. (a-o, ka-ko, etc)
-          toggle on/off dakuten and handakuten characters
-          implement single katakana characters
-          toggle on/off katakana
+          *implement single hiragana characters
+          *toggle on/off certain character rows. (a-o, ka-ko, etc)
+          *toggle on/off dakuten and handakuten characters
+          *implement single katakana characters
+          *toggle on/off katakana
           add double characters (cha, nyo, byo)
           add extended characters for katakana (vyo, fo, che, we, ve)
   
@@ -24,8 +24,11 @@
           switch between different typefaces
           autosubmit answer without pressing "enter" each time
 
-      Things to fix:
-          Checkboxes failing to toggle when you keep clicking on them
+      Known Bugs:
+          *'check all' box fails if you click on the box itself.
+
+      * : denotes a fixed/completed feature
+
       */
 
 
@@ -54,6 +57,8 @@
         {row:'hd', sym:['だ',　'づ',　'ぢ','で', 'ど']},
         {row:'hb', sym:['ば', 'び', 'ぶ', 'べ', 'ぼ']},
         {row:'hp', sym:['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ']},
+
+        {row:'hcombo', sym:['パ', 'ピ', 'プ', 'ペ', 'ポ']},
         
         //katakana
         {row:'k', sym:['ア', 'イ', 'ウ', 'エ', 'オ']},
@@ -71,7 +76,9 @@
         {row:'kz', sym:['ザ', 'ジ', 'ズ', 'ゼ', 'ゾ']},
         {row:'kd', sym:['ダ',　'ヂ',　'ヅ',　'デ', 'ド']},
         {row:'kb', sym:['バ', 'ビ', 'ブ', 'ベ', 'ボ']},
-        {row:'kp', sym:['パ', 'ピ', 'プ', 'ペ', 'ポ']}
+        {row:'kp', sym:['パ', 'ピ', 'プ', 'ペ', 'ポ']},
+
+        {row:'kcombo', sym:['パ', 'ピ', 'プ', 'ペ', 'ポ']},
       ];
 
       var quizzerButton = document.getElementsByClassName("tablink")[2];            // quiz tab button
@@ -80,6 +87,7 @@
       var testerIndex = 0;                          // index of next character to use                                                        // array of symbols to test user on
       var correct = 0;
       var wrong = 0;
+      var alreadyWrong = false;
 
       // add listener for when we click on quizzer button
       quizzerButton.addEventListener('click', () => {
@@ -113,18 +121,17 @@
       input.addEventListener('keypress', (e) => {                     
         if (e.key === 'Enter') {
           var converted = converter.convert(question.innerHTML).romaji;
-          // console.log(totalAttempts);
           if (input.value.length == 0)
-          {}  // if input is empty and enter is pressed do nothing
+          {
+            // do nothing
+          } 
           else if (input.value.toLowerCase() == converted)  
           {
-            correct++;
-            nextLetter();
             correctAnswer();
+            nextLetter();
           }                   // if input matches symbol
           else
           {
-            wrong++;
             wrongAnswer()
           }
             
@@ -152,14 +159,25 @@
 
       function wrongAnswer()
       {
+        if(alreadyWrong) {
+          return;
+        } else {
+          alreadyWrong = true;
+        }
+
+        wrong++;
         totalAttempts++;
-        wideIn()
+        wideIn();
       }
 
       function correctAnswer()
       {
+        if(alreadyWrong) {
+          alreadyWrong = false;
+          wideFadeAway();
+        }
+        correct++;
         totalAttempts++;
-        wideFadeAway();
       }
 
 
