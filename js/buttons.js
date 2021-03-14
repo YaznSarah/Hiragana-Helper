@@ -21,6 +21,8 @@ function changeTab(evt, nextTab) {
 
 function check(id) {
   document.getElementById(id).checked = !document.getElementById(id).checked;
+  if(id == 'hy' && document.getElementById(id).checked == false) document.getElementById('hCombo').checked = false;
+  if(id == 'ky' && document.getElementById(id).checked == false) document.getElementById('kCombo').checked = false;
 }
 
 // function for function of "check all?" boxes
@@ -43,6 +45,17 @@ function toggleKata() {
     checkbox.checked = source.checked;
   }
 }
+
+function toggleHiraCombo() {
+  check('hCombo');
+
+}
+
+function toggleKataCombo() {
+  check('kCombo');
+
+}
+
 
 function clickChild(source) {
   source.children[0].click();

@@ -13,7 +13,8 @@
           *toggle on/off dakuten and handakuten characters
           *implement single katakana characters
           *toggle on/off katakana
-          add double characters (cha, nyo, byo)
+          *add double characters (cha, nyo, byo)
+          implement 'bag' system (selected kana must be seen once before repeating)
           add extended characters for katakana (vyo, fo, che, we, ve)
   
           add simple words
@@ -58,8 +59,21 @@
         {row:'hb', sym:['ば', 'び', 'ぶ', 'べ', 'ぼ']},
         {row:'hp', sym:['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ']},
 
-        {row:'hcombo', sym:['パ', 'ピ', 'プ', 'ペ', 'ポ']},
-        
+        {row:'hCombo', sym:[]},
+
+        {row:'hkc', sym:['きゃ','きゅ','きょ']},
+        {row:'hgc', sym:['ぎゃ','ぎゅ','ぎょ']},
+        {row:'hsc', sym:['しゃ','しゅ','しょ']},
+        {row:'hzc', sym:['じゃ','じゅ','じょ']},
+        {row:'htc', sym:['ちゃ','ちゅ','ちょ']},
+        {row:'hdc', sym:['ぢゃ','ぢゅ','ぢょ']},
+        {row:'hnc', sym:['にゃ','にゅ','にょ']},
+        {row:'hhc', sym:['ひゃ','ひゅ','ひょ']},
+        {row:'hbc', sym:['びゃ','びゅ','びょ']},
+        {row:'hpc', sym:['ぴゃ','ぴゅ','ぴょ']},
+        {row:'hmc', sym:['みゃ','みゅ','みょ']},
+        {row:'hrc', sym:['りゃ','りゅ','りょ']},
+
         //katakana
         {row:'k', sym:['ア', 'イ', 'ウ', 'エ', 'オ']},
         {row:'kk', sym:['カ', 'キ', 'ク', 'ケ', 'コ']},
@@ -78,7 +92,20 @@
         {row:'kb', sym:['バ', 'ビ', 'ブ', 'ベ', 'ボ']},
         {row:'kp', sym:['パ', 'ピ', 'プ', 'ペ', 'ポ']},
 
-        {row:'kcombo', sym:['パ', 'ピ', 'プ', 'ペ', 'ポ']},
+        {row:'kCombo', sym:[]},
+
+        {row:'kkc', sym:['キャ','キュ','キョ']},
+        {row:'kgc', sym:['ギャ','ギュ','ギョ']},
+        {row:'ksc', sym:['シャ','シュ','ショ']},
+        {row:'kzc', sym:['ジャ','ジュ','ジョ']},
+        {row:'ktc', sym:['チャ','チュ','チョ']},
+        {row:'kdc', sym:['ジャ','ジュ','ジョ']},
+        {row:'knc', sym:['ニャ','ニュ','ニョ']},
+        {row:'khc', sym:['ヒャ','ヒュ','ヒョ']},
+        {row:'kbc', sym:['ビャ','ビュ','ビョ']},
+        {row:'kpc', sym:['ピャ','ピュ','ピョ']},
+        {row:'kmc', sym:['ミャ','ミュ','ミョ']},
+        {row:'krc', sym:['リャ','リュ','リョ']},
       ];
 
       var quizzerButton = document.getElementsByClassName("tablink")[2];            // quiz tab button
@@ -104,10 +131,28 @@
         // get all checked rows
         markedBoxes = document.querySelectorAll('input[name=hira]:checked,input[name=kata]:checked');
         // add checked rows to tester array
+        var hCombos = false;
+        var kCombos = false;
         markedBoxes.forEach(function(box) {
+          if(box.id == 'hCombo') hCombos = true;
+          if(box.id == 'kCombo') kCombos = true;
           if(box.name == "selectall") return; //ignore selectall checkboxes
-          tester = tester.concat(questions.find(r => r.row === box.id).sym)
+          if(questions.find(element => element.row == box.id) != undefined) {
+            tester = tester.concat(questions.find(element => element.row == box.id).sym)
+          }
+          if(hCombos == true
+            && box.id.startsWith('h')
+            && questions.find(element => element.row == box.id + 'c') != undefined) {
+            tester = tester.concat(questions.find(element => element.row == box.id + 'c').sym)
+          }
+          if(kCombos == true
+            && box.id.startsWith('k')
+            && questions.find(element => element.row == box.id + 'c') != undefined) {
+            tester = tester.concat(questions.find(element => element.row == box.id + 'c').sym)
+          }
+
         });
+        
         correct = 0;
         wrong = 0;
         totalAttempts = 1;
@@ -141,7 +186,7 @@
       
       function nextLetter() {
         // if nothing is checked, use a-o as default row.
-        if(tester.length == 0 || tester === undefined) {
+        if(tester.length == 0 || tester == undefined) {
           tester = ['あ','い','う','え','お']
         }
         // choose a random index, ensuring we don't roll the same kana twice in a row

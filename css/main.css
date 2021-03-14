@@ -32,6 +32,10 @@ input {
   font-size: 24pt;
 }
 
+input.selectall {
+  pointer-events: none;
+}
+
 label {
   user-select: none;
   cursor: pointer;
@@ -93,7 +97,7 @@ label {
 .menu {
   display: block;
   /* overflow: hidden; */
-  width: 500px;
+  width: 600px;
   height: 500px;
 }
 
@@ -154,6 +158,21 @@ label {
 
 .empty {
   visibility: hidden;
+}
+
+.checkbutton {
+  cursor: pointer;
+}
+
+.maincheckboxes {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row;
+}
+
+.maincheckboxes > div {
+  margin: 20px 30px;
+  padding: 0 20px;
 }
 
 [name="hira"], [name="kana"] {

@@ -25,11 +25,19 @@
       </div>
       <div id="hiragana" class="container tabcontent">
         <h3>hiragana</h3>
-        <div onclick="toggleHira();">
+        <div class="maincheckboxes">
+          <div class="checkbutton" onclick="toggleHira();">
           <label for="selectall">
-            <input type="checkbox" id="hiraAllBox" name="selectall">
+            <input type="checkbox" name="selectall" class="selectall" id="hiraAllBox">
             check all
           </label>
+          </div>
+          <div class="checkbutton" onclick="toggleHiraCombo();">
+            <label>
+              <input type="checkbox" name="hira" class="selectall" id="hCombo">
+              include combos
+            </label>
+            </div>
         </div>
         <div class="chart">
           <table>
@@ -175,11 +183,19 @@
       </div>
       <div  id="katakana" class="container tabcontent">
         <h3>katakana</h3>
-        <div onclick="toggleKata();">
-        <label for="selectall">
-          <input type="checkbox" name="selectall" id="kataAllBox">
-          check all
-        </label>
+        <div class="maincheckboxes">
+          <div class="checkbutton" onclick="toggleKata();">
+          <label>
+            <input type="checkbox" name="selectall" class="selectall" id="kataAllBox">
+            check all
+          </label>
+          </div>
+          <div class="checkbutton" onclick="toggleKataCombo();">
+            <label>
+              <input type="checkbox" name="kata" class="selectall" id="kCombo">
+              include combos
+            </label>
+            </div>
         </div>
         <div class="chart">
           <table class="chart" id="katakanachart">
