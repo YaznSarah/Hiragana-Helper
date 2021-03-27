@@ -16,14 +16,17 @@
           *add double characters (cha, nyo, byo)
           implement 'bag' system (selected kana must be seen once before repeating)
           add extended characters for katakana (vyo, fo, che, we, ve)
+          show correct answer after 3 failed attempts
   
+          stretch goals:
           add simple words
           add quizzes/minigames/highscores
+          
           
       Aesthetic/QoL: 
           light/dark modes
           switch between different typefaces
-          autosubmit answer without pressing "enter" each time
+          option to autosubmit answer without pressing "enter" each time
 
       Known Bugs:
           *'check all' box fails if you click on the box itself.
