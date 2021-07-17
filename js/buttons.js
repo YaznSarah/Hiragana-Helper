@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   changeTab(event, 'hiragana');
   })
 
-//function to change pages and highligh/de-light buttons
+//function to change pages and highlight/de-light buttons
 //nextPage: the page which we are changing to.
 function changeTab(evt, nextTab) {
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -15,7 +15,7 @@ function changeTab(evt, nextTab) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
     document.getElementById(nextTab).style.display = "flex";
-    evt.currentTarget.className += " active";
+    //evt.currentTarget.className += " active";
     footer.innerHTML = "";
 }
 
@@ -56,7 +56,10 @@ function toggleKataCombo() {
 
 }
 
-
 function clickChild(source) {
   source.children[0].click();
+}
+
+function setFont(fontname) {
+  document.documentElement.style.fontFamily = fontname;
 }

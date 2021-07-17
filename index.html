@@ -15,16 +15,17 @@
 <body>
 
   <div class="container" id="maincontent">
-    <h1>Kana Helper</h1>
+    <h1>Kana Helper<br><span class="subtext" style="font-size: 20pt;">カナヘルパー</span></h1>
     <div class="menu">
       <div class="navbar">
           <button class="tablink" onclick="changeTab(event, 'hiragana')">hiragana</button>
           <button class="tablink" onclick="changeTab(event, 'katakana')">katakana</button>
-          <button class="tablink" onclick="changeTab(event, 'quizzer');">quizzer</button>
+          <button class="tablink" onclick="changeTab(event, 'quizzer');">quiz</button>
+          <button class="tablink" onclick="changeTab(event, 'settings');">settings</button>
           <button class="tablink" onclick="changeTab(event, 'about')">about</button>
       </div>
       <div id="hiragana" class="container tabcontent">
-        <h3>hiragana</h3>
+        <h3>hiragana<br><span class="subtext">ひらがな</span></h3>
         <div class="maincheckboxes">
           <div class="checkbutton" onclick="toggleHira();">
           <label for="selectall">
@@ -182,7 +183,7 @@
         </div>
       </div>
       <div  id="katakana" class="container tabcontent">
-        <h3>katakana</h3>
+        <h3>katakana<br><span class="subtext">カタカナ</span></h3>
         <div class="maincheckboxes">
           <div class="checkbutton" onclick="toggleKata();">
           <label>
@@ -325,7 +326,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <td>ヲ<br><span class="subtext">wo</span></td>
+              <td>ヲ<br></td>
             </tr>
             <tr onClick="check('knn')">
               <td><input type="checkbox" name="kata" id="knn"></td>
@@ -339,7 +340,7 @@
         </div>
       </div>
       <div id="quizzer" class="container tabcontent">
-        <h3>quiz</h3>
+        <h3>quiz<br><span class="subtext">クイズ</span></h3>
         <div id="question">
           <!--
           <img id = "wide" src = "/src/images/wide.jpg">
@@ -349,11 +350,44 @@
           <input type="text" id="response" class="" maxlength="6"></input>
         </div>
       </div>
-      <div id = "footer"></div>
-      <div id="about" class="container tabcontent">
-        <h3>about</h3>
-        Simple tool for practicing Hiragana & Katakana. Work in progress.
+      <div id="settings" class="container tabcontent">
+        <h3>settings<br><span class="subtext">セッティング</span></h3>
+        <h2>font</h2>
+        <label class="radiocontainer kosugi">Kosugi<br><span class="subtext">小杉</span>
+          <input type="radio" checked="checked" name="radio" onclick="setFont('Kosugi')">
+          <span class="checkmark"></span>
+        </label>
+        <label class="radiocontainer tegomin">New Tegomin<br><span class="subtext">ニューテゴミン</span>
+          <input type="radio" name="radio" onclick="setFont('New Tegomin')">
+          <span class="checkmark"></span>
+        </label>
+        <label class="radiocontainer opensans">Open Sans<br><span class="subtext">オープンサンセリフ</span>
+          <input type="radio" name="radio" onclick="setFont('Open Sans')">
+          <span class="checkmark"></span>
+        </label>
+        <label class="radiocontainer rocknroll">RocknRoll One<br><span class="subtext">ロックンロールワン</span>
+          <input type="radio" name="radio" onclick="setFont('RocknRoll One')">
+          <span class="checkmark"></span>
+        </label>
+        <label class="radiocontainer sawarabimincho">Sawarabi Mincho<br><span class="subtext">さわらび みんちょ</span>
+          <input type="radio" name="radio" onclick="setFont('Sawarabi Mincho')">
+          <span class="checkmark"></span>
+        </label>
+        <label class="radiocontainer dotgothic">Dot Gotchic 16<br><span class="subtext">ドットゴッチ16</span>
+          <input type="radio" name="radio" onclick="setFont('DotGothic16')">
+          <span class="checkmark"></span>
+        </label>
       </div>
+      <div id="about" class="container tabcontent">
+        <h3>about<br><span class="subtext">について</span></h3>
+        <p>
+        Study tool for learning Hiragana and Katakana, two key scripts used to form the basis of Japanese writing. Knowing them will allow you to read children's books or order off some restauraunt menus in Japan.
+        <br><br>
+        Created by <a href="https://github.com/Flootah">Ed</a> and <a href="https://github.com/YaznSarah">Yazn</a><br>
+        View this project on <a href="https://github.com/YaznSarah/Hiragana-Helper">github</a><br>
+       </p>
+      </div>
+      <div id="footer"></div>
     </div>
   </div>
 </body>
