@@ -44,7 +44,6 @@ html {
 
 body {
     background-color: #222;
-
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
@@ -234,9 +233,9 @@ a:visited, a:link {
 #maincontent {
   width: 800px;
   text-align: center;
-  padding: 50px;
-  margin: 10vh auto;
-  min-height: 1000px;
+  padding: 0 50px;
+  margin: 0 auto;
+  min-height: 600px;
 }
 
 #quizzer {
