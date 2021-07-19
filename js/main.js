@@ -45,75 +45,75 @@
       // hiragana reference
       const questions = [
         //hiragana
-        {row:'h', sym:['あ', 'い', 'う', 'え', 'お']},
-        {row:'hk', sym:['か', 'き', 'く', 'け', 'こ']},
-        {row:'hs', sym:['さ', 'し', 'す', 'せ', 'そ']},
-        {row:'ht', sym:['た', 'ち', 'つ', 'て', 'と']},
-        {row:'hn', sym:['な', 'に', 'ぬ', 'ね', 'の']},
-        {row:'hh', sym:['は', 'ひ', 'ふ', 'へ', 'ほ']},
-        {row:'hm', sym:['ま', 'み', 'む', 'め', 'も']},
-        {row:'hy', sym:['や', 'ゆ', 'よ']},
-        {row:'hr', sym:['ら', 'り', 'る', 'れ', 'ろ']},
-        {row:'hw', sym:['わ', 'を']},
-        {row:'hnn', sym:['ん']},
-        {row:'hg', sym:['が', 'ぎ', 'ぐ', 'げ', 'ご']},
-        {row:'hz', sym:['ざ', 'じ', 'ず', 'ぜ', 'ぞ']},
-        {row:'hd', sym:['だ',　'づ',　'ぢ','で', 'ど']},
-        {row:'hb', sym:['ば', 'び', 'ぶ', 'べ', 'ぼ']},
-        {row:'hp', sym:['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ']},
+        { row: 'h', sym: ['あ', 'い', 'う', 'え', 'お'] },
+        { row: 'hk', sym: ['か', 'き', 'く', 'け', 'こ'] },
+        { row: 'hs', sym: ['さ', 'し', 'す', 'せ', 'そ'] },
+        { row: 'ht', sym: ['た', 'ち', 'つ', 'て', 'と'] },
+        { row: 'hn', sym: ['な', 'に', 'ぬ', 'ね', 'の'] },
+        { row: 'hh', sym: ['は', 'ひ', 'ふ', 'へ', 'ほ'] },
+        { row: 'hm', sym: ['ま', 'み', 'む', 'め', 'も'] },
+        { row: 'hy', sym: ['や', 'ゆ', 'よ'] },
+        { row: 'hr', sym: ['ら', 'り', 'る', 'れ', 'ろ'] },
+        { row: 'hw', sym: ['わ', 'を'] },
+        { row: 'hnn', sym: ['ん'] },
+        { row: 'hg', sym: ['が', 'ぎ', 'ぐ', 'げ', 'ご'] },
+        { row: 'hz', sym: ['ざ', 'じ', 'ず', 'ぜ', 'ぞ'] },
+        { row: 'hd', sym: ['だ', 'づ', 'ぢ', 'で', 'ど'] },
+        { row: 'hb', sym: ['ば', 'び', 'ぶ', 'べ', 'ぼ'] },
+        { row: 'hp', sym: ['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ'] },
 
-        {row:'hCombo', sym:[]},
+        { row: 'hCombo', sym: [] },
 
-        {row:'hkc', sym:['きゃ','きゅ','きょ']},
-        {row:'hgc', sym:['ぎゃ','ぎゅ','ぎょ']},
-        {row:'hsc', sym:['しゃ','しゅ','しょ']},
-        {row:'hzc', sym:['じゃ','じゅ','じょ']},
-        {row:'htc', sym:['ちゃ','ちゅ','ちょ']},
-        {row:'hdc', sym:['ぢゃ','ぢゅ','ぢょ']},
-        {row:'hnc', sym:['にゃ','にゅ','にょ']},
-        {row:'hhc', sym:['ひゃ','ひゅ','ひょ']},
-        {row:'hbc', sym:['びゃ','びゅ','びょ']},
-        {row:'hpc', sym:['ぴゃ','ぴゅ','ぴょ']},
-        {row:'hmc', sym:['みゃ','みゅ','みょ']},
-        {row:'hrc', sym:['りゃ','りゅ','りょ']},
+        { row: 'hkc', sym: ['きゃ', 'きゅ', 'きょ'] },
+        { row: 'hgc', sym: ['ぎゃ', 'ぎゅ', 'ぎょ'] },
+        { row: 'hsc', sym: ['しゃ', 'しゅ', 'しょ'] },
+        { row: 'hzc', sym: ['じゃ', 'じゅ', 'じょ'] },
+        { row: 'htc', sym: ['ちゃ', 'ちゅ', 'ちょ'] },
+        { row: 'hdc', sym: ['ぢゃ', 'ぢゅ', 'ぢょ'] },
+        { row: 'hnc', sym: ['にゃ', 'にゅ', 'にょ'] },
+        { row: 'hhc', sym: ['ひゃ', 'ひゅ', 'ひょ'] },
+        { row: 'hbc', sym: ['びゃ', 'びゅ', 'びょ'] },
+        { row: 'hpc', sym: ['ぴゃ', 'ぴゅ', 'ぴょ'] },
+        { row: 'hmc', sym: ['みゃ', 'みゅ', 'みょ'] },
+        { row: 'hrc', sym: ['りゃ', 'りゅ', 'りょ'] },
 
         //katakana
-        {row:'k', sym:['ア', 'イ', 'ウ', 'エ', 'オ']},
-        {row:'kk', sym:['カ', 'キ', 'ク', 'ケ', 'コ']},
-        {row:'ks', sym:['サ', 'シ', 'ス', 'セ', 'ソ']},
-        {row:'kt', sym:['タ', 'チ', 'ツ', 'テ', 'ト']},
-        {row:'kn', sym:['ナ', 'ニ', 'ヌ', 'ネ', 'ノ']},
-        {row:'kh', sym:['ハ', 'ヒ', 'フ', 'ヘ', 'ほ']},
-        {row:'km', sym:['マ', 'ミ', 'ム', 'メ', 'モ']},
-        {row:'ky', sym:['ヤ', 'ユ', 'ヨ']},
-        {row:'kr', sym:['ラ', 'リ', 'ル', 'レ', 'ロ']},
-        {row:'kw', sym:['ワ', 'ヲ']},
-        {row:'knn', sym:['ン']},
-        {row:'kg', sym:['ガ', 'ギ', 'ク', 'ゲ', 'ゴ']},
-        {row:'kz', sym:['ザ', 'ジ', 'ズ', 'ゼ', 'ゾ']},
-        {row:'kd', sym:['ダ',　'ヂ',　'ヅ',　'デ', 'ド']},
-        {row:'kb', sym:['バ', 'ビ', 'ブ', 'ベ', 'ボ']},
-        {row:'kp', sym:['パ', 'ピ', 'プ', 'ペ', 'ポ']},
+        { row: 'k', sym: ['ア', 'イ', 'ウ', 'エ', 'オ'] },
+        { row: 'kk', sym: ['カ', 'キ', 'ク', 'ケ', 'コ'] },
+        { row: 'ks', sym: ['サ', 'シ', 'ス', 'セ', 'ソ'] },
+        { row: 'kt', sym: ['タ', 'チ', 'ツ', 'テ', 'ト'] },
+        { row: 'kn', sym: ['ナ', 'ニ', 'ヌ', 'ネ', 'ノ'] },
+        { row: 'kh', sym: ['ハ', 'ヒ', 'フ', 'ヘ', 'ほ'] },
+        { row: 'km', sym: ['マ', 'ミ', 'ム', 'メ', 'モ'] },
+        { row: 'ky', sym: ['ヤ', 'ユ', 'ヨ'] },
+        { row: 'kr', sym: ['ラ', 'リ', 'ル', 'レ', 'ロ'] },
+        { row: 'kw', sym: ['ワ', 'ヲ'] },
+        { row: 'knn', sym: ['ン'] },
+        { row: 'kg', sym: ['ガ', 'ギ', 'ク', 'ゲ', 'ゴ'] },
+        { row: 'kz', sym: ['ザ', 'ジ', 'ズ', 'ゼ', 'ゾ'] },
+        { row: 'kd', sym: ['ダ', 'ヂ', 'ヅ', 'デ', 'ド'] },
+        { row: 'kb', sym: ['バ', 'ビ', 'ブ', 'ベ', 'ボ'] },
+        { row: 'kp', sym: ['パ', 'ピ', 'プ', 'ペ', 'ポ'] },
 
-        {row:'kCombo', sym:[]},
+        { row: 'kCombo', sym: [] },
 
-        {row:'kkc', sym:['キャ','キュ','キョ']},
-        {row:'kgc', sym:['ギャ','ギュ','ギョ']},
-        {row:'ksc', sym:['シャ','シュ','ショ']},
-        {row:'kzc', sym:['ジャ','ジュ','ジョ']},
-        {row:'ktc', sym:['チャ','チュ','チョ']},
-        {row:'kdc', sym:['ジャ','ジュ','ジョ']},
-        {row:'knc', sym:['ニャ','ニュ','ニョ']},
-        {row:'khc', sym:['ヒャ','ヒュ','ヒョ']},
-        {row:'kbc', sym:['ビャ','ビュ','ビョ']},
-        {row:'kpc', sym:['ピャ','ピュ','ピョ']},
-        {row:'kmc', sym:['ミャ','ミュ','ミョ']},
-        {row:'krc', sym:['リャ','リュ','リョ']},
+        { row: 'kkc', sym: ['キャ', 'キュ', 'キョ'] },
+        { row: 'kgc', sym: ['ギャ', 'ギュ', 'ギョ'] },
+        { row: 'ksc', sym: ['シャ', 'シュ', 'ショ'] },
+        { row: 'kzc', sym: ['ジャ', 'ジュ', 'ジョ'] },
+        { row: 'ktc', sym: ['チャ', 'チュ', 'チョ'] },
+        { row: 'kdc', sym: ['ジャ', 'ジュ', 'ジョ'] },
+        { row: 'knc', sym: ['ニャ', 'ニュ', 'ニョ'] },
+        { row: 'khc', sym: ['ヒャ', 'ヒュ', 'ヒョ'] },
+        { row: 'kbc', sym: ['ビャ', 'ビュ', 'ビョ'] },
+        { row: 'kpc', sym: ['ピャ', 'ピュ', 'ピョ'] },
+        { row: 'kmc', sym: ['ミャ', 'ミュ', 'ミョ'] },
+        { row: 'krc', sym: ['リャ', 'リュ', 'リョ'] },
       ];
 
       var quizzerButton = document.getElementsByClassName("tablink")[2];            // quiz tab button
       var markedBoxes = [];                                                         // array of checked sets
-      var tester = [];      
+      var tester = [];
       var testerIndex = 0;                          // index of next character to use                                                        // array of symbols to test user on
       var correct = 0;
       var wrong = 0;
@@ -126,8 +126,7 @@
 
       // initialize tester array with checked boxes
       // TODO add case when nothing is checked
-      function initializeQuiz()
-      {
+      function initializeQuiz() {
         // clear tester array
         tester = [];
         question.innerHTML = "";
@@ -136,78 +135,80 @@
         // add checked rows to tester array
         var hCombos = false;
         var kCombos = false;
-        markedBoxes.forEach(function(box) {
-          if(box.id == 'hCombo') hCombos = true;
-          if(box.id == 'kCombo') kCombos = true;
-          if(box.name == "selectall") return; //ignore selectall checkboxes
-          if(questions.find(element => element.row == box.id) != undefined) {
+        markedBoxes.forEach(function (box) {
+          if (box.id == 'hCombo') hCombos = true;
+          if (box.id == 'kCombo') kCombos = true;
+          if (box.name == "selectall") return; //ignore selectall checkboxes
+          if (questions.find(element => element.row == box.id) != undefined) {
             tester = tester.concat(questions.find(element => element.row == box.id).sym)
           }
-          if(hCombos == true
+          if (hCombos == true
             && box.id.startsWith('h')
             && questions.find(element => element.row == box.id + 'c') != undefined) {
             tester = tester.concat(questions.find(element => element.row == box.id + 'c').sym)
           }
-          if(kCombos == true
+          if (kCombos == true
             && box.id.startsWith('k')
             && questions.find(element => element.row == box.id + 'c') != undefined) {
             tester = tester.concat(questions.find(element => element.row == box.id + 'c').sym)
           }
 
         });
-        
+
         correct = 0;
         wrong = 0;
-        totalAttempts = 1;
+        totalAttempts = 0;
         nextLetter();
       };
-      
+
 
       // event listener for input
       // is enter is pressed, check answer.
-      
-      input.addEventListener('keypress', (e) => {                     
+
+      input.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
           var converted = converter.convert(question.innerHTML).romaji;
-          if (input.value.length == 0)
-          {
+          if (input.value.length == 0) {
             // do nothing
-          } 
-          else if (input.value.toLowerCase() == converted)  
-          {
+          }
+          else if (input.value.toLowerCase() == converted) {
             correctAnswer();
             nextLetter();
           }                   // if input matches symbol
-          else
-          {
+          else {
             wrongAnswer()
           }
-            
+
           // code for enter
         }
-    });
-      
+      });
+
       function nextLetter() {
         // if nothing is checked, use a-o as default row.
-        if(tester.length == 0 || tester == undefined) {
-          tester = ['あ','い','う','え','お']
+        if (tester.length == 0 || tester == undefined) {
+          tester = ['あ', 'い', 'う', 'え', 'お']
         }
         // choose a random index, ensuring we don't roll the same kana twice in a row
         var temp = testerIndex;
-        while(testerIndex == temp) {
+        while (testerIndex == temp) {
           testerIndex = Math.floor(Math.random() * tester.length)
         }
         question.innerHTML = tester[testerIndex];
         input.value = "";
-        console.log(correct + " correct - "+ wrong + " wrong");
-        score = (correct/totalAttempts);
-        footer.innerHTML = Math.round(score*100) + "%";
-  
+        console.log(correct + " correct - " + wrong + " wrong");
+        score = (correct / totalAttempts);
+        if (isNaN(score)) {
+          // do nothing
+        }
+        else {
+          footer.innerHTML = Math.round(score * 100) + "%";
+        }
+
+
       };
 
-      function wrongAnswer()
-      {
-        if(alreadyWrong) {
+      function wrongAnswer() {
+        if (alreadyWrong) {
           return;
         } else {
           alreadyWrong = true;
@@ -218,9 +219,8 @@
         wideIn();
       }
 
-      function correctAnswer()
-      {
-        if(alreadyWrong) {
+      function correctAnswer() {
+        if (alreadyWrong) {
           alreadyWrong = false;
           wideFadeAway();
         }
@@ -229,11 +229,11 @@
       }
 
 
-/*-----------------------------EXPERIMENTAL CODE-----------------------------*/
+      /*-----------------------------EXPERIMENTAL CODE-----------------------------*/
 
-});
+    });
 
-/*-----------------------------BEGIN JP-CONVERT CODE-----------------------------*/
+    /*-----------------------------BEGIN JP-CONVERT CODE-----------------------------*/
 
   }, { "jp-conversion": 2 }], 2: [function (require, module, exports) {
     // Always useful to have lying around
